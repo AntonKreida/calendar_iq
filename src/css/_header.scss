@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100px;
+    
+    background-color: $bg-color--header;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    &__buttons {
+        display: flex;
+        position: relative;
+        gap: 10px;
+    }
+}

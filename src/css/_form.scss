@@ -11,7 +11,11 @@
         left: -40px;
         top: 5px;
         z-index: 1;
+        border: none;
+
+
         cursor: pointer;
+        background: none;
 
 
         &:hover path {
@@ -32,17 +36,17 @@
         box-shadow: $box-shadow;
         border-radius: 4px;
 
-        @include formating-text;
+        @include format-text;
 
 
         background: $bg-input;
         outline: none;
 
         &::-webkit-search-cancel-button {
-            -webkit-appearance: none;
             width: 20px;
             height: 20px;
-            background: url("/src/assist/images/header/icon_cross.svg") no-repeat center;
+            -webkit-appearance: none;
+            background: url("../assist/images/header/icon_cross.svg") no-repeat center;
             cursor: pointer;
         }
 
@@ -80,12 +84,12 @@
         padding: 6px 12px;
     
     
-       @include formating-text;
+       @include format-text;
     
         background: $bg-textarea;
     
         &::placeholder {
-            @include formating-text-placholder;
+            @include format-text-placeholder;
         }
     
         &:focus {

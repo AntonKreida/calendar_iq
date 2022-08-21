@@ -62,6 +62,10 @@ img {
   gap: 10px;
 }
 
+.icon--svg path {
+  transition: fill 0.2s linear, transform 0.2s linear;
+}
+
 .form {
   position: relative;
   left: 0;
@@ -75,7 +79,9 @@ img {
   left: -40px;
   top: 5px;
   z-index: 1;
+  border: none;
   cursor: pointer;
+  background: none;
 }
 .form__icon:hover path {
   fill: #000;
@@ -101,10 +107,10 @@ img {
   outline: none;
 }
 .form__input::-webkit-search-cancel-button {
-  -webkit-appearance: none;
   width: 20px;
   height: 20px;
-  background: url("/src/assist/images/header/icon_cross.svg") no-repeat center;
+  -webkit-appearance: none;
+  background: url("../assist/images/header/icon_cross.svg") no-repeat center;
   cursor: pointer;
 }
 .form__input::-moz-placeholder {
@@ -275,10 +281,6 @@ img {
   margin-right: 10px;
 }
 
-.icon--svg path {
-  transition: fill 0.2s linear, transform 0.2s linear;
-}
-
 .main {
   display: flex;
   flex-direction: column;
@@ -440,7 +442,7 @@ img {
   background: #FFFFFF;
   fill: #CFCFCF;
 }
-.btn-control--todye {
+.btn-control--today {
   width: 60px;
   height: 20px;
   font-family: "Roboto";
@@ -449,10 +451,10 @@ img {
   line-height: 14px;
   color: #292929;
 }
-.btn-control--todye:hover {
+.btn-control--today:hover {
   color: #fff;
 }
-.btn-control--todye:disabled {
+.btn-control--today:disabled {
   transition: none;
   background: #FFFFFF;
   color: #CFCFCF;

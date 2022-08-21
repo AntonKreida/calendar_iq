@@ -5,7 +5,7 @@
     border-radius: 2px;
     border: none;
 
-    @include formatin-text-button;
+    @include format-text-button;
 
     box-shadow: $box-shadow-button;
     background-color: $bg-button;
@@ -83,7 +83,7 @@
         fill: #CFCFCF;
     }
 
-    &--todye {
+    &--today {
         width: 60px;
         height: 20px;
 

@@ -8,7 +8,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "deploy": ""
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Kreida Anton",
   "license": "ISC",

@@ -110,7 +110,7 @@ img {
   width: 20px;
   height: 20px;
   -webkit-appearance: none;
-  background: url("../assist/images/header/icon_cross.svg") no-repeat center;
+  background: url("../assets/images/header/icon_cross.svg") no-repeat center;
   cursor: pointer;
 }
 .form__input::-moz-placeholder {
@@ -341,6 +341,9 @@ img {
 }
 .day:hover {
   background: #F4F4F4;
+}
+.day--block:hover {
+  background: none;
 }
 .day:active {
   background: #FFFFFF;

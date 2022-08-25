@@ -1,4 +1,4 @@
-import {getDate, date} from "../utils/getDate"
+import {getDate, date} from "../utils/getDate";
 import {templateDay} from "../template";
 
 const {month} = getDate();
@@ -25,7 +25,7 @@ const renderCal = () => {
   let nextDays = 7 - lastDayIndex;
   if (lastDayIndex === 0) {
     nextDays = 0;
-  };
+  }
 
   const prevLastDay = new Date(
     date.getFullYear(),
@@ -71,7 +71,7 @@ const renderCal = () => {
     monthDay.appendChild(templateDay());
     const day = monthDay.childNodes[sum++];
     day.firstChild.prepend(document.createTextNode(`${[prevLastDay - x + 1]}`));
-  };
+  }
  
   for (let i = 1; i <= lastDayMonth; i++) {
     monthDay.appendChild(templateDay());

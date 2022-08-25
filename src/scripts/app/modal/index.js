@@ -1,5 +1,5 @@
 import { templateFormDay } from "../template";
-import { unlockForm, stopAscent } from "../handlers/index";
+import handlers from "../handlers/index";
 
 const showFormEventDay = () => {
   const day = document.querySelectorAll(`.js-day`);
@@ -32,13 +32,13 @@ const showFormEventDay = () => {
       eventFormActive.classList.add(`event--active`);
 
       const iconEvent = document.querySelector(`.js-icon-event`);
-      iconEvent.addEventListener(`click`, unlockForm);
+      iconEvent.addEventListener(`click`, handlers.unlockForm);
 
       const buttonFormEvent = document.querySelector(`.js-btn-event-form`);
-      buttonFormEvent.addEventListener(`click`, unlockForm);
+      buttonFormEvent.addEventListener(`click`, handlers.unlockForm);
 
       const eventForm = document.querySelector(`.event`);
-      eventForm.addEventListener(`click`, stopAscent);
+      eventForm.addEventListener(`click`, handlers.stopAscent);
     };
     person.addEventListener(`click`, showForm);
   });

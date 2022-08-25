@@ -74,13 +74,5 @@ const handlers = {
   }
 };
 
-export const onFocusHandler = handlers.onFocusHandler;
-export const onReloadHandler = handlers.onReloadHandler;
-export const openPopupHandler = handlers.openPopupHandler;
-export const unlockPopupHandler = handlers.unlockPopupHandler;
-export const onCreateQuickEventHandler = handlers.onCreateQuickEventHandler;
-export const prevMonthHandler = handlers.prevMonthHandler;
-export const todayHandler = handlers.todayHandler;
-export const nextMonthHandler = handlers.nextMonthHandler;
-export const unlockForm = handlers.unlockForm;
-export const stopAscent = handlers.stopAscent;
+
+export default handlers;

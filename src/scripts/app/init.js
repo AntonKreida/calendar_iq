@@ -2,7 +2,9 @@ import handlers from "./handlers/index.js";
 import renderCal from "./calendar/index.js";
 import showFormEventDay from "./modal/index.js";
 
-// focus header input
+
+const loaderScript = () => {
+  // focus header input
 const headerFormIcon = document.querySelector(`.js-header-from-icon`);
 headerFormIcon.addEventListener(`click`, handlers.onFocusHandler);
 
@@ -35,4 +37,7 @@ const nextButton = document.querySelector(`.js-btn-control-next`);
 nextButton.addEventListener(`click`, handlers.nextMonthHandler);
 
 renderCal();
-window.addEventListener(`DOMContentLoaded`, showFormEventDay());
+showFormEventDay()
+};
+
+window.addEventListener(`DOMContentLoaded`, loaderScript);

@@ -3,6 +3,7 @@ import { getDate, date } from "../utils/getDate.js";
 import { showFormEventDay } from "../modal/index.js";
 
 const { month, year } = getDate();
+const calendar = document.querySelector(`.calendar`);
 
 const handlers = {
   onFocusHandler: function () {
@@ -32,7 +33,6 @@ const handlers = {
     popup.classList.remove(`popup--active`);
   },
   prevMonthHandler: function () {
-    const calendar = document.querySelector(`.calendar__days`);
     const day = document.querySelectorAll(`.js-day`);
     day.forEach(element => {
       calendar.removeChild(element);
@@ -41,7 +41,6 @@ const handlers = {
     renderCal();
   },
   todayHandler: function () {
-    const calendar = document.querySelector(`.calendar__days`);
     const day = document.querySelectorAll(`.js-day`);
     day.forEach(element => {
       calendar.removeChild(element);
@@ -51,7 +50,6 @@ const handlers = {
     renderCal();
   },
   nextMonthHandler: function () {
-    const calendar = document.querySelector(`.calendar__days`);
     const day = document.querySelectorAll(`.js-day`);
     day.forEach(element => {
       calendar.removeChild(element);

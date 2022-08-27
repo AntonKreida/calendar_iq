@@ -1,6 +1,5 @@
 import handlers from "./handlers/index.js";
 import renderCal from "./calendar/index.js";
-import { dayHandler} from "./modal/index.js";
 
 
 const loaderScript = () => {
@@ -37,7 +36,7 @@ const nextButton = document.querySelector(`.js-btn-control-next`);
 nextButton.addEventListener(`click`, handlers.nextMonthHandler);
 
 
-const calendar = document.querySelector(`.calendar__days`);
+const calendar = document.querySelector(`.calendar`);
 calendar.addEventListener(`click`, handlers.showEventForm);
 
 renderCal();

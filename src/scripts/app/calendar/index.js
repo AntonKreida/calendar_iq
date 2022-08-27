@@ -64,7 +64,7 @@ const renderCal = () => {
   monthTitle.textContent = monthName;
   yearTitle.textContent = date.getFullYear();
 
-  const monthDay = document.querySelector(`.calendar__days`);
+  const monthDay = document.querySelector(`.calendar`);
 
   let sum = 0;
   for (let x = firstDayIndex; x > 0; x--) {

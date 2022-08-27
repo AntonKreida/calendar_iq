@@ -253,7 +253,7 @@ img {
   text-align: center;
   color: #292929; }
 
-.calendar__days {
+.calendar {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

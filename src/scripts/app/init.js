@@ -3,7 +3,7 @@ import renderCal from "./calendar/index.js";
 
 
 const loaderScript = () => {
-  // focus header input
+// focus header input
 const headerFormIcon = document.querySelector(`.js-header-from-icon`);
 headerFormIcon.addEventListener(`click`, handlers.onFocusHandler);
 
@@ -11,17 +11,9 @@ headerFormIcon.addEventListener(`click`, handlers.onFocusHandler);
 const reloadButton = document.querySelector(".js-btn-reload");
 reloadButton.addEventListener(`click`, handlers.onReloadHandler);
 
-// open popup
+// popup
 const pushButton = document.querySelector(`.js-btn-push`);
-pushButton.addEventListener(`click`, handlers.openPopupHandler);
-
-// unlock popup
-const popupCross = document.querySelector(`.js-popup-cross`);
-popupCross.addEventListener(`click`, handlers.unlockPopupHandler);
-
-// create quick event
-const createButton = document.querySelector(`.js-btn-create`);
-createButton.addEventListener(`click`, handlers.onCreateQuickEventHandler);
+pushButton.addEventListener(`click`, handlers.popupHandler);
 
 //click month prev
 const PrevButton = document.querySelector(`.js-btn-control-prev`);
@@ -35,7 +27,7 @@ todayButton.addEventListener(`click`, handlers.todayHandler);
 const nextButton = document.querySelector(`.js-btn-control-next`);
 nextButton.addEventListener(`click`, handlers.nextMonthHandler);
 
-
+//show form day;
 const calendar = document.querySelector(`.calendar`);
 calendar.addEventListener(`click`, handlers.showEventForm);
 

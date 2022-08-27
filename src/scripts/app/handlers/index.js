@@ -21,7 +21,7 @@ const handlers = {
     const parent = target.closest(`.header__buttons`);
     parent.appendChild(popup(attributes));
     target.classList.add(`btn--active`);
-    target.setAttribute(`disabled`, `disabled`)
+    target.setAttribute(`disabled`, `disabled`);
 
     const popupForm = parent.lastChild;
     const icon = popupForm.querySelector(`.js-popup-cross`);
@@ -71,10 +71,10 @@ const handlers = {
   },
 };
 
-const unlockPopup = (event) => {
+const unlockPopup = event => {
   const target = event.target;
   const parent = target.closest(`.header__buttons`);
-  const button = parent.querySelector(`.js-btn-push`)
+  const button = parent.querySelector(`.js-btn-push`);
   button.classList.remove(`btn--active`);
   button.removeAttribute(`disabled`);
   parent.removeChild(parent.lastChild);

@@ -1,7 +1,7 @@
-import {getDate, date} from "../utils/getDate";
-import {templateDay , dayTemplate} from "../template";
+import { getDate, date } from "../utils/getDate";
+import { templateDay, dayTemplate } from "../template";
 
-const {month} = getDate();
+const { month } = getDate();
 
 const renderCal = () => {
   date.setDate(month);
@@ -69,7 +69,7 @@ const renderCal = () => {
   for (let x = firstDayIndex; x > 0; x--) {
     monthDay.innerHTML += templateDay([prevLastDay - x + 1]);
   }
- 
+
   for (let i = 1; i <= lastDayMonth; i++) {
     monthDay.innerHTML += templateDay(i);
   }

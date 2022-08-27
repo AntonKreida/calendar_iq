@@ -1,6 +1,6 @@
 //generation template day
-export const templateDay = (numberDay) => {
-const template = ` 
+export const templateDay = numberDay => {
+  const template = ` 
 <div class = 'day js-day'>
   <h4 class = 'day__head'>${numberDay}</h4>
   <div class = 'day__title'>
@@ -9,11 +9,11 @@ const template = `
   <div class = 'day__text'></div>
 </div>`;
 
-return template;
+  return template;
 };
 
 //generation template form day
-export const form = ({type, img, placeholder, buttonName, name}) => {
+export const form = ({ type, img, placeholder, buttonName, name }) => {
   const template = `
   <img class="icon--cross icon--cross--form js-icon-event" src="${img}" alt="none">
   <form class="event__form form js-form" action="/" method="post">
@@ -30,11 +30,11 @@ export const form = ({type, img, placeholder, buttonName, name}) => {
   const formEvent = document.createElement(`div`);
   formEvent.classList.add(`event`, `event--active`);
   formEvent.innerHTML = template;
-  
-  return formEvent;
-}
 
-export const popup = ({type, buttonName, placeholder}) => {
+  return formEvent;
+};
+
+export const popup = ({ type, buttonName, placeholder }) => {
   const template = `
   <div class="popup__inner">
       <svg class="icon--cross js-popup-cross" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,9 +46,9 @@ export const popup = ({type, buttonName, placeholder}) => {
       </form>
   </div>`;
 
-const popup = document.createElement(`div`);
-popup.classList.add(`popup`, `popup--active`, `js-popup`);
-popup.innerHTML = template;
+  const popup = document.createElement(`div`);
+  popup.classList.add(`popup`, `popup--active`, `js-popup`);
+  popup.innerHTML = template;
 
-return popup;
+  return popup;
 };

@@ -70,7 +70,6 @@ const handlers = {
     parent.classList.remove(`day--block`);
     parent.removeChild(parent.lastChild);
   },
-
   stopAscent: function (event) {
     event.stopPropagation();
   },

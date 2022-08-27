@@ -1,89 +1,35 @@
-//generation template form day
-export const templateFormDay = () => {
-  const event = document.createElement(`div`);
-  event.classList.add(`event`, `event--active`);
-
-  const imgForm = document.createElement(`img`);
-  imgForm.classList.add(`icon--cross`, `icon--cross--form`, `js-icon-event`);
-  imgForm.src = `./assets/icon_cross.svg`;
-  imgForm.setAttribute(`alt`, "none");
-  event.appendChild(imgForm);
-
-  const form = document.createElement(`form`);
-  form.classList.add(`event__form`, `form` , `js-form`);
-  form.action = `/`;
-  form.setAttribute(`method`, `post`);
-  event.appendChild(form);
-
-  const inputDate = document.createElement(`input`);
-  inputDate.classList.add(`form__input`, `event__input`, `js-from-input`);
-  inputDate.setAttribute(`type`, `text`);
-  inputDate.setAttribute(`placeholder`, `Событие...`);
-  inputDate.setAttribute(`name`, `eventDate`);
-  form.appendChild(inputDate);
-
-  const inputTitle = document.createElement(`input`);
-  inputTitle.classList.add(`form__input`, `event__input`, `js-from-input`, `js-from-input-date`);
-  inputTitle.setAttribute(`type`, `text`);
-  inputTitle.setAttribute(`placeholder`, `День, месяц, год...`);
-  inputTitle.setAttribute(`name`, `eventTitle`);
-  form.appendChild(inputTitle);
-
-  const inputNameParty = document.createElement(`input`);
-  inputNameParty.classList.add(`form__input`, `event__input`, `js-from-input`);
-  inputNameParty.setAttribute(`type`, `text`);
-  inputNameParty.setAttribute(`placeholder`, `Имена участников...`);
-  inputNameParty.setAttribute(`name`, `eventParty`);
-  form.appendChild(inputNameParty);
-
-  const textarea = document.createElement(`textarea`);
-  textarea.classList.add(`form__textarea`, `js-form`, `js-from-input`, `js-textarea`);
-  textarea.setAttribute(`placeholder`, `Описание...`);
-  textarea.setAttribute(`name`, `eventText`);
-  form.appendChild(textarea);
-
-  const control = document.createElement(`div`);
-  control.classList.add(`form-control`);
-  form.appendChild(control);
-
-  const buttonReady = document.createElement(`button`);
-  buttonReady.classList.add(
-    `btn-control`,
-    `btn-control--form`,
-    `js-btn-event-form`
-  );
-  buttonReady.setAttribute(`type`, `button`);
-  buttonReady.textContent = `Готово`;
-  control.appendChild(buttonReady);
-
-  const buttonReset = document.createElement(`button`);
-  buttonReset.classList.add(`btn-control`, `btn-control--form`);
-  buttonReset.setAttribute(`type`, `reset`);
-  buttonReset.textContent = `Удалить`;
-  control.appendChild(buttonReset);
-
-  return event;
-};
-
 //generation template day
-export const templateDay = () => {
-  const day = document.createElement(`div`);
-  day.classList.add(`day`, `js-day`);
+export const templateDay = (numberDay) => {
+const template = ` 
+<div class = 'day js-day'>
+  <h4 class = 'day__head'>${numberDay}</h4>
+  <div class = 'day__title'>
+    <h4 class = 'day__title'></h4>
+  </div>
+  <div class = 'day__text'></div>
+</div>`;
 
-  const titleDay = document.createElement(`h4`);
-  titleDay.classList.add(`day__head`);
-  day.appendChild(titleDay);
+return template;
+}
 
-  const eventTitle = document.createElement(`div`);
-  eventTitle.classList.add(`day__title`);
-  day.appendChild(eventTitle);
+//generation template form day
+export const form = ({type, img, placeholder, buttonName, name}) => {
+  const template = `
+  <img class="icon--cross icon--cross--form js-icon-event" src="${img}" alt="none">
+  <form class="event__form form js-form" action="/" method="post">
+    <input class="form__input event__input js-from-input" type="${type[0]}" placeholder="${placeholder[0]}" name="${name[0]}">
+    <input class="form__input event__input js-from-input js-from-input-date" type="${type[0]}" placeholder="${placeholder[1]}" name="${name[1]}">
+    <input class="form__input event__input js-from-input" type="${type[0]}" placeholder="${placeholder[2]}" name="${name[2]}">
+    <textarea class="form__textarea js-form js-from-input js-textarea" placeholder="${placeholder[3]}" name="${name[3]}"></textarea>
+    <div class="form-control">
+      <button class="btn-control btn-control--form js-btn-event-form" type="${type[1]}">${buttonName[0]}</button>
+      <button class="btn-control btn-control--form" type="${type[2]}">${buttonName[1]}</button>
+    </div>
+  </form>`;
 
-  const title = document.createElement(`h4`);
-  eventTitle.appendChild(title);
-
-  const eventText = document.createElement(`div`);
-  eventText.classList.add(`day__text`);
-  day.appendChild(eventText);
-
-  return day;
-};
+  const formEvent = document.createElement(`div`);
+  formEvent.classList.add(`event`, `event--active`);
+  formEvent.innerHTML = template;
+  
+  return formEvent;
+}

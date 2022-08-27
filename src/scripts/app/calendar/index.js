@@ -1,5 +1,5 @@
 import {getDate, date} from "../utils/getDate";
-import {templateDay} from "../template";
+import {templateDay , dayTemplate} from "../template";
 
 const {month} = getDate();
 
@@ -66,23 +66,16 @@ const renderCal = () => {
 
   const monthDay = document.querySelector(`.calendar`);
 
-  let sum = 0;
   for (let x = firstDayIndex; x > 0; x--) {
-    monthDay.appendChild(templateDay());
-    const day = monthDay.childNodes[sum++];
-    day.firstChild.prepend(document.createTextNode(`${[prevLastDay - x + 1]}`));
+    monthDay.innerHTML += templateDay([prevLastDay - x + 1]);
   }
  
   for (let i = 1; i <= lastDayMonth; i++) {
-    monthDay.appendChild(templateDay());
-    const day = monthDay.childNodes[sum++];
-    day.firstChild.prepend(document.createTextNode(`${[i]}`));
+    monthDay.innerHTML += templateDay(i);
   }
 
   for (let j = 1; j <= nextDays; j++) {
-    monthDay.appendChild(templateDay());
-    const day = monthDay.childNodes[sum++];
-    day.firstChild.prepend(document.createTextNode(`${[j]}`));
+    monthDay.innerHTML += templateDay(j);
   }
 
   const titleDay = document.querySelectorAll(`.day__head`);

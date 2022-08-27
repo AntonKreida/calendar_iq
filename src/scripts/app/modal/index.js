@@ -1,5 +1,6 @@
-import { templateFormDay } from "../template";
+import { form } from "../template";
 import handlers from "../handlers/index.js";
+import { attributes } from "../utils/getAttributes";
 
 export const showFormEventDay = targetDay => {
   if (targetDay.classList.contains(`day--active`)) {
@@ -15,7 +16,7 @@ export const showFormEventDay = targetDay => {
     });
 
     targetDay.classList.add(`day--block`, `day--active`);
-    targetDay.appendChild(templateFormDay());
+    targetDay.appendChild(form(attributes));
 
     const iconEventForm = targetDay.querySelector(`.js-icon-event`);
     iconEventForm.addEventListener(`click`, handlers.unlockEventForm);

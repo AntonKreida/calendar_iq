@@ -1,6 +1,6 @@
 import renderCal from "../calendar/index.js";
-import showFormEventDay  from "../modal/index.js";
 import { getDate, date } from "../utils/getDate.js";
+import { showFormEventDay } from "../modal/index.js";
 
 const { month, year } = getDate();
 
@@ -34,45 +34,48 @@ const handlers = {
   prevMonthHandler: function () {
     const calendar = document.querySelector(`.calendar__days`);
     const day = document.querySelectorAll(`.js-day`);
-    day.forEach((element) => {
+    day.forEach(element => {
       calendar.removeChild(element);
-    })
+    });
     date.setMonth(date.getMonth() - 1);
     renderCal();
-    showFormEventDay();
   },
   todayHandler: function () {
     const calendar = document.querySelector(`.calendar__days`);
     const day = document.querySelectorAll(`.js-day`);
-    day.forEach((element) => {
+    day.forEach(element => {
       calendar.removeChild(element);
-    })
+    });
     date.setMonth(month);
     date.setFullYear(year);
     renderCal();
-    showFormEventDay();
   },
   nextMonthHandler: function () {
     const calendar = document.querySelector(`.calendar__days`);
     const day = document.querySelectorAll(`.js-day`);
-    day.forEach((element) => {
+    day.forEach(element => {
       calendar.removeChild(element);
-    })
+    });
     date.setMonth(date.getMonth() + 1);
     renderCal();
-    showFormEventDay();
   },
-  unlockForm: function () {
-    const eventForm = document.querySelector(`.event`);
-    const day = eventForm.parentElement;
-    day.classList.remove(`day--active`);
-    day.classList.remove(`day--block`);
-    day.removeChild(eventForm);
+  showEventForm: function (event) {
+    const target = event.target.closest(`.js-day`);
+    if (!target.classList.contains(`js-day`)) return;
+
+    showFormEventDay(target);
   },
+  unlockEventForm: function (event) {
+    const target = event.target;
+    const parent = target.closest(`.js-day`);
+    parent.classList.remove(`day--active`);
+    parent.classList.remove(`day--block`);
+    parent.removeChild(parent.lastChild);
+  },
+
   stopAscent: function (event) {
     event.stopPropagation();
-  }
+  },
 };
-
 
 export default handlers;

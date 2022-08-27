@@ -1,47 +1,29 @@
 import { templateFormDay } from "../template";
-import handlers from "../handlers/index";
+import handlers from "../handlers/index.js";
 
-const showFormEventDay = () => {
-  const day = document.querySelectorAll(`.js-day`);
-  day.forEach((person) => {
-    const showForm = () => {
-      const days = document.querySelectorAll(`.js-day`);
-      days.forEach((element) => {
-        if (element.classList.contains(`day--block`)) {
-          element.classList.remove(`day--block`);
-        }
-        if (element.classList.contains(`day--active`)) {
-          const eventForm = document.querySelector(`.event`);
-          element.classList.remove(`day--active`);
-          element.removeChild(eventForm);
-        }
-      });
+export const showFormEventDay = targetDay => {
+  if (targetDay.classList.contains(`day--active`)) {
+    targetDay.classList.remove(`day--block`, `day--active`);
+    targetDay.removeChild(targetDay.lastChild);
+  } else if (!targetDay.classList.contains(`day--active`)) {
+    const days = document.querySelectorAll(`.js-day`);
+    days.forEach(day => {
+      if (day.classList.contains(`day--active`)) {
+        day.classList.remove(`day--block`, `day--active`);
+        day.removeChild(day.lastChild);
+      }
+    });
 
-      const eventFormRemove = document.querySelectorAll(`.event`);
-      eventFormRemove.forEach((element) => {
-        if (element.classList.contains(`event--active`)) {
-          element.classList.remove(`event--active`);
-        }
-      });
+    targetDay.classList.add(`day--block`, `day--active`);
+    targetDay.appendChild(templateFormDay());
 
-      person.classList.add(`day--active`);
-      person.classList.add(`day--block`);
-      person.appendChild(templateFormDay());
+    const iconEventForm = targetDay.querySelector(`.js-icon-event`);
+    iconEventForm.addEventListener(`click`, handlers.unlockEventForm);
 
-      const eventFormActive = person.querySelector(`.event`);
-      eventFormActive.classList.add(`event--active`);
+    const buttonFormEvent = targetDay.querySelector(`.js-btn-event-form`);
+    buttonFormEvent.addEventListener(`click`, handlers.unlockEventForm);
 
-      const iconEvent = document.querySelector(`.js-icon-event`);
-      iconEvent.addEventListener(`click`, handlers.unlockForm);
-
-      const buttonFormEvent = document.querySelector(`.js-btn-event-form`);
-      buttonFormEvent.addEventListener(`click`, handlers.unlockForm);
-
-      const eventForm = document.querySelector(`.event`);
-      eventForm.addEventListener(`click`, handlers.stopAscent);
-    };
-    person.addEventListener(`click`, showForm);
-  });
+    const eventForm = targetDay.querySelector(`.event`);
+    eventForm.addEventListener("click", handlers.stopAscent);
+  }
 };
-
-export default showFormEventDay;

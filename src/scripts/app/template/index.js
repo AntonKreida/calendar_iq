@@ -1,6 +1,7 @@
-//generation template day
-export const templateDay = numberDay => {
-  const template = ` 
+/* eslint-disable max-len */
+// generation template day
+export const templateDay = (numberDay) => {
+	const template = ` 
 <div class = 'day js-day'>
   <h4 class = 'day__head'>${numberDay}</h4>
   <div class = 'day__title'>
@@ -9,12 +10,14 @@ export const templateDay = numberDay => {
   <div class = 'day__text'></div>
 </div>`;
 
-  return template;
+	return template;
 };
 
-//generation template form day
-export const form = ({ type, img, placeholder, buttonName, name }) => {
-  const template = `
+// generation template form day
+export const templateEventForm = ({
+	type, img, placeholder, buttonName, name,
+}) => {
+	const template = `
   <img class="icon--cross icon--cross--form js-icon-event" src="${img}" alt="none">
   <form class="event__form form js-form" action="/" method="post">
     <input class="form__input event__input js-from-input" type="${type[0]}" placeholder="${placeholder[0]}" name="${name[0]}">
@@ -27,15 +30,15 @@ export const form = ({ type, img, placeholder, buttonName, name }) => {
     </div>
   </form>`;
 
-  const formEvent = document.createElement(`div`);
-  formEvent.classList.add(`event`);
-  formEvent.innerHTML = template;
+	const formEvent = document.createElement('div');
+	formEvent.classList.add('event');
+	formEvent.innerHTML = template;
 
-  return formEvent;
+	return formEvent;
 };
 
-export const popup = ({ type, buttonName, placeholder }) => {
-  const template = `
+export const templatePopup = ({ type, buttonName, placeholder }) => {
+	const template = `
   <div class="popup__inner">
       <svg class="icon--cross js-popup-cross" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3.54969 3.00004L5.88597 0.663692C6.03801 0.511722 6.03801 0.266008 5.88597 0.114038C5.734 -0.0379314 5.48829 -0.0379314 5.33632 0.114038L2.99996 2.45039L0.663685 0.114038C0.511644 -0.0379314 0.266001 -0.0379314 0.114031 0.114038C-0.0380103 0.266008 -0.0380103 0.511722 0.114031 0.663692L2.45031 3.00004L0.114031 5.33639C-0.0380103 5.48836 -0.0380103 5.73407 0.114031 5.88604C0.189767 5.96185 0.289348 5.99993 0.388858 5.99993C0.488368 5.99993 0.587878 5.96185 0.663685 5.88604L2.99996 3.54969L5.33632 5.88604C5.41212 5.96185 5.51163 5.99993 5.61114 5.99993C5.71065 5.99993 5.81016 5.96185 5.88597 5.88604C6.03801 5.73407 6.03801 5.48836 5.88597 5.33639L3.54969 3.00004Z" fill="black"></path>
@@ -46,9 +49,9 @@ export const popup = ({ type, buttonName, placeholder }) => {
       </form>
   </div>`;
 
-  const popup = document.createElement(`div`);
-  popup.classList.add(`popup`, `js-popup`);
-  popup.innerHTML = template;
+	const popup = document.createElement('div');
+	popup.classList.add('popup', 'js-popup');
+	popup.innerHTML = template;
 
-  return popup;
+	return popup;
 };

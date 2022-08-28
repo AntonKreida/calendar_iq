@@ -1,7 +1,7 @@
 import renderCal from "../calendar/index.js";
 import { getDate, date } from "../utils/getDate.js";
 import { attributes } from "../utils/getAttributes.js";
-import { showFormEventDay } from "../modal/index.js";
+import { showFormEventDay, unlockPopup } from "../modal/index.js";
 import { popup } from "../template/index.js";
 
 const { month, year } = getDate();
@@ -20,7 +20,6 @@ const handlers = {
     const target = event.target;
     const parent = target.closest(`.header__buttons`);
     parent.appendChild(popup(attributes));
-    target.classList.add(`btn--active`);
     target.setAttribute(`disabled`, `disabled`);
 
     const popupForm = parent.lastChild;
@@ -62,22 +61,13 @@ const handlers = {
   unlockEventForm: function (event) {
     const target = event.target;
     const parent = target.closest(`.js-day`);
-    parent.classList.remove(`day--active`);
-    parent.classList.remove(`day--block`);
+    parent.classList.remove(`active`);
+    parent.classList.remove(`block`);
     parent.removeChild(parent.lastChild);
   },
   stopAscent: function (event) {
     event.stopPropagation();
   },
-};
-
-const unlockPopup = event => {
-  const target = event.target;
-  const parent = target.closest(`.header__buttons`);
-  const button = parent.querySelector(`.js-btn-push`);
-  button.classList.remove(`btn--active`);
-  button.removeAttribute(`disabled`);
-  parent.removeChild(parent.lastChild);
 };
 
 export default handlers;

@@ -28,7 +28,7 @@ export const form = ({ type, img, placeholder, buttonName, name }) => {
   </form>`;
 
   const formEvent = document.createElement(`div`);
-  formEvent.classList.add(`event`, `event--active`);
+  formEvent.classList.add(`event`);
   formEvent.innerHTML = template;
 
   return formEvent;
@@ -47,7 +47,7 @@ export const popup = ({ type, buttonName, placeholder }) => {
   </div>`;
 
   const popup = document.createElement(`div`);
-  popup.classList.add(`popup`, `popup--active`, `js-popup`);
+  popup.classList.add(`popup`, `js-popup`);
   popup.innerHTML = template;
 
   return popup;

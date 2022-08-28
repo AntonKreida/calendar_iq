@@ -12,10 +12,6 @@
     cursor: pointer;
     transition: background 0.2s linear;
 
-    &--active {
-        background-color:  #C2E4FE;
-    }
-
     &:focus {
         outline: none;
     }

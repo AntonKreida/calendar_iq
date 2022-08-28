@@ -1,60 +1,55 @@
 .popup {
-    display: none;
-    position: absolute;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 150%;
+  z-index: 2000;
+  width: 300px;
+  height: 94px;
+  padding: 12px;
+
+  background: $bg-color-popup;
+  filter: $filter-popup;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
     left: 0;
-    top: 150%;
-    z-index: 2000;
-    width: 300px;
-    height: 94px;
-    padding: 12px;
+    top: 0;
+    gap: 8px;
 
-    background:$bg-color-popup;
-    filter: $filter-popup;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 10px;
+      top: -20px;
+      z-index: -1;
 
-    &--active {
-        display: block;
+      background: $bg-color-popup;
+      transform: $transform-popup-before;
     }
+  }
 
-    &__inner {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        left: 0;
-        top: 0;
-        gap:8px;
-
-        &::before {
-            content:"";
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            left: 10px;
-            top: -20px;
-            z-index: -1;
-    
-            background: $bg-color-popup;
-            transform: $transform-popup-before;
-        }
-    }
-
-    &__input {
-        width: 276px;
-        height: 28px;
-    }
+  &__input {
+    width: 276px;
+    height: 28px;
+  }
 }
 
 .icon--cross {
-    margin-left: auto;
-    cursor: pointer;
-    transition: transform 0.2s linear;
+  margin-left: auto;
+  cursor: pointer;
+  transition: transform 0.2s linear;
 
-    &:hover path {
-        transform: $transform-icon--cross;
-    }
+  &:hover path {
+    transform: $transform-icon--cross;
+  }
 
-    &--form{
-        margin-right: 10px;
-    }
+  &--form {
+    margin-right: 10px;
+  }
 }
-

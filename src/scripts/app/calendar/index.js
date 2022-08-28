@@ -1,5 +1,5 @@
 import { getDate, date } from "../utils/getDate";
-import { templateDay, dayTemplate } from "../template";
+import { templateDay} from "../template";
 
 const { month } = getDate();
 

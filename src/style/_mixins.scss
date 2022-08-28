@@ -1,41 +1,41 @@
-@mixin format-text  {
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.1;
-        color: #292929;
-    }
+@mixin format-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #292929;
+}
 
 @mixin format-text-placeholder {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 1.1;
-        color: #CFCFCF;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #cfcfcf;
 }
 
 @mixin format-text-data {
-        font-family: 'Roboto';
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;
-        text-align: center;
-        color: #292929;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #292929;
 }
 
 @mixin format-text-day {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1.1;
-        color: #6B6B6B;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #6b6b6b;
 }
 
 @mixin format-text-button {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 1.1;
-        color: #fff;
-        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }

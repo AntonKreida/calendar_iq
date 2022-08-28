@@ -1,23 +1,9 @@
 /*!**************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style/main.scss ***!
   \**************************************************************************************************************/
-/*Base
-==========================*/
-/*Header
-==========================*/
-/*Popup
-==========================*/
-/*Form
-==========================*/
-/*Calendar
-==========================*/
-/*Button
-==========================*/
-/*Event
-==========================*/
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   line-height: 1.5;
   font-weight: 400;
@@ -45,7 +31,7 @@ img {
   justify-content: center;
   align-items: flex-end;
   min-height: 100px;
-  background-color: #F4F4F4; }
+  background-color: #f4f4f4; }
   .header__inner {
     display: flex;
     align-items: center;
@@ -58,7 +44,7 @@ img {
     gap: 10px; }
 
 .icon--svg path {
-  transition: fill 0.2s linear, transform 0.2s linear; }
+  transition: fill 0.2s linear, transform 0.2s linear; }
 
 .form {
   position: relative;
@@ -86,10 +72,10 @@ img {
     z-index: 0;
     width: 210px;
     padding: 6px 12px;
-    border: 1px solid #CFCFCF;
+    border: 1px solid #cfcfcf;
     box-shadow: inset 0px 0px 1px 2px #00000040;
     border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.1;
@@ -103,53 +89,56 @@ img {
       background: url(../assets/icon_cross.svg) no-repeat center;
       cursor: pointer; }
     .form__input::placeholder {
-      color: #CFCFCF; }
+      color: #cfcfcf; }
     .form__input:focus {
-      border: 1px solid #27A1FF; }
+      border: 1px solid #27a1ff; }
     .form__input:invalid {
-      border: 1px solid #E94E4E;
-      color: #E94E4E; }
+      border: 1px solid #e94e4e;
+      color: #e94e4e; }
     .form__input:disabled {
-      border: 1px solid #CFCFCF;
-      color: #CFCFCF;
-      background: #F4F4F4; }
+      border: 1px solid #cfcfcf;
+      color: #cfcfcf;
+      background: #f4f4f4; }
   .form__textarea {
     width: 100%;
     height: 125px;
     margin-top: 16px;
     resize: none;
-    border: 1px solid #CFCFCF;
+    border: 1px solid #cfcfcf;
     border-radius: 4px;
     box-shadow: inset 0px 0px 1px 2px #00000040;
     padding: 6px 12px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.1;
     color: #292929;
     background: #fff; }
     .form__textarea::placeholder {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       font-weight: 300;
       font-size: 14px;
       line-height: 1.1;
-      color: #CFCFCF; }
+      color: #cfcfcf; }
     .form__textarea:focus {
-      border: 1px solid #27A1FF;
+      border: 1px solid #27a1ff;
       outline: none; }
     .form__textarea:invalid {
-      border: 1px solid #E94E4E;
-      color: #E94E4E; }
+      border: 1px solid #e94e4e;
+      color: #e94e4e; }
     .form__textarea:disabled {
-      border: 1px solid #CFCFCF;
-      color: #CFCFCF;
-      background: #F4F4F4; }
+      border: 1px solid #cfcfcf;
+      color: #cfcfcf;
+      background: #f4f4f4; }
   .form-control {
     display: flex;
     gap: 20px; }
 
 .event {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   width: 300px;
   height: 315px;
   padding: 12px;
@@ -169,11 +158,6 @@ img {
     z-index: -2;
     transform: rotate(45deg);
     background: #fff; }
-  .event--active {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px; }
   .event__form {
     display: flex;
     flex-direction: column;
@@ -184,7 +168,7 @@ img {
     height: 28px; }
 
 .popup {
-  display: none;
+  display: block;
   position: absolute;
   left: 0;
   top: 150%;
@@ -194,8 +178,6 @@ img {
   padding: 12px;
   background: #fff;
   filter: drop-shadow(0px 0px 7px #00000040); }
-  .popup--active {
-    display: block; }
   .popup__inner {
     display: flex;
     flex-direction: column;
@@ -246,7 +228,7 @@ img {
 
 .data-text {
   width: 130px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
@@ -273,23 +255,18 @@ img {
   position: relative;
   left: 0;
   top: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.1;
-  color: #6B6B6B;
-  transition: background 0.1s linear, border 0.2s linear, box-shadow 0.2s linear; }
+  color: #6b6b6b;
+  transition: background 0.1s linear, border 0.2s linear, box-shadow 0.2s linear; }
   .day:hover {
-    background: #F4F4F4; }
-  .day--block:hover {
-    background: none; }
+    background: #f4f4f4; }
   .day:active {
-    background: #FFFFFF;
+    background: #ffffff;
     border: 1px solid #292929;
-    box-shadow: 0px 0px 10px 2px #0271C7; }
-  .day--active {
-    border: 1px solid #292929;
-    box-shadow: 0px 0px 10px 2px #0271C7; }
+    box-shadow: 0px 0px 10px 2px #0271c7; }
   .day__head {
     font-family: "Roboto", sans-serif;
     font-weight: 400; }
@@ -304,7 +281,14 @@ img {
     height: 32px;
     font-size: 14px;
     line-height: 16px;
-    color: #6B6B6B; }
+    color: #6b6b6b; }
+
+.active {
+  border: 1px solid #292929;
+  box-shadow: 0px 0px 10px 2px #0271c7; }
+
+.block:hover {
+  background: none; }
 
 .btn {
   width: 80px;
@@ -312,18 +296,16 @@ img {
   padding: 6px 12px 6px 12px;
   border-radius: 2px;
   border: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.1;
   color: #fff;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 1px 1px #00000040;
-  background-color: #0271C7;
+  background-color: #0271c7;
   cursor: pointer;
   transition: background 0.2s linear; }
-  .btn--active {
-    background-color: #C2E4FE; }
   .btn:focus {
     outline: none; }
   .btn:hover {

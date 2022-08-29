@@ -62,6 +62,11 @@ img {
       fill: #000;
       transform: scale(1.1); }
   .form__input {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #292929;
     position: relative;
     left: 0;
     top: 0;
@@ -72,11 +77,6 @@ img {
     border: 1px solid #cfcfcf;
     border-radius: 4px;
     box-shadow: inset 0px 0px 1px 2px #00000040;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.1;
-    color: #292929;
     background: #fff;
     outline: none; }
     .form__input::-webkit-search-cancel-button {
@@ -97,6 +97,11 @@ img {
       color: #cfcfcf;
       background: #f4f4f4; }
   .form__textarea {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #292929;
     resize: none;
     width: 100%;
     height: 125px;
@@ -105,11 +110,6 @@ img {
     border: 1px solid #cfcfcf;
     border-radius: 4px;
     box-shadow: inset 0px 0px 1px 2px #00000040;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.1;
-    color: #292929;
     background: #fff; }
     .form__textarea::placeholder {
       font-family: "Roboto", sans-serif;
@@ -182,13 +182,13 @@ img {
     height: 48px;
     padding: 12px 0px; }
   .main__data-text {
-    width: 130px;
     font-family: "Roboto";
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
     text-align: center;
-    color: #292929; }
+    color: #292929;
+    width: 130px; }
   .main__control {
     display: flex;
     justify-content: space-between;
@@ -203,6 +203,11 @@ img {
   padding-bottom: 10px; }
 
 .day {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #6b6b6b;
   position: relative;
   left: 0;
   top: 0;
@@ -215,11 +220,6 @@ img {
   height: 120px;
   padding: 8px;
   border: 1px solid #292929;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.1;
-  color: #6b6b6b;
   transition: background 0.1s linear, border 0.2s linear,  box-shadow 0.2s linear; }
   .day:hover {
     background: #f4f4f4; }
@@ -284,17 +284,17 @@ img {
   background: none; }
 
 .btn {
-  width: 80px;
-  height: 26px;
-  padding: 6px 12px 6px 12px;
-  border: none;
-  border-radius: 2px;
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.1;
   color: #fff;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  width: 80px;
+  height: 26px;
+  padding: 6px 12px 6px 12px;
+  border: none;
+  border-radius: 2px;
   box-shadow: 0px 1px 1px #00000040;
   background-color: #0271c7;
   transition: background 0.2s linear;

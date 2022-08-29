@@ -23,12 +23,11 @@
     &::before {
       content: "";
       position: absolute;
-      width: 24px;
-      height: 24px;
       left: 10px;
       top: -20px;
       z-index: -1;
-
+      width: 24px;
+      height: 24px;
       background: $bg-color-popup;
       transform: $transform-popup-before;
     }
@@ -39,7 +38,6 @@
     height: 15px;
     margin-left: auto;
     border: none;
-
     background: none;
   }
 

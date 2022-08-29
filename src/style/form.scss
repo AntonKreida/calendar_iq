@@ -5,16 +5,15 @@
   z-index: 0;
 
   &__icon {
-    width: 20px;
-    height: 20px;
     position: absolute;
     left: -40px;
     top: 5px;
     z-index: 1;
+    width: 20px;
+    height: 20px;
     border: none;
-
-    cursor: pointer;
     background: none;
+    cursor: pointer;
 
     &:hover path {
       fill: #000;
@@ -23,19 +22,17 @@
   }
 
   &__input {
-    display: block;
     position: relative;
     left: 0;
     top: 0;
     z-index: 0;
+    display: block;
     width: 210px;
     padding: 6px 12px;
     border: $border;
-    box-shadow: $box-shadow;
     border-radius: 4px;
-
+    box-shadow: $box-shadow;
     @include format-text;
-
     background: $bg-input;
     outline: none;
 
@@ -57,31 +54,26 @@
 
     &:invalid {
       border: 1px solid #e94e4e;
-
       color: #e94e4e;
     }
 
     &:disabled {
       border: 1px solid #cfcfcf;
-
       color: #cfcfcf;
-
       background: #f4f4f4;
     }
   }
 
   &__textarea {
+    resize: none;
     width: 100%;
     height: 125px;
     margin-top: 16px;
-    resize: none;
+    padding: 6px 12px;
     border: $border;
     border-radius: 4px;
     box-shadow: $box-shadow;
-    padding: 6px 12px;
-
     @include format-text;
-
     background: $bg-textarea;
 
     &::placeholder {
@@ -95,15 +87,12 @@
 
     &:invalid {
       border: 1px solid #e94e4e;
-
       color: #e94e4e;
     }
 
     &:disabled {
       border: 1px solid #cfcfcf;
-
       color: #cfcfcf;
-
       background: #f4f4f4;
     }
   }

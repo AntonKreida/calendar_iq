@@ -2,15 +2,13 @@
   width: 80px;
   height: 26px;
   padding: 6px 12px 6px 12px;
-  border-radius: 2px;
   border: none;
-
+  border-radius: 2px;
   @include format-text-button;
-
   box-shadow: $box-shadow-button;
   background-color: $bg-button;
-  cursor: pointer;
   transition: background 0.2s linear;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -31,7 +29,6 @@
   &-form-closest {
     margin-left: auto;
     border: none;
-
     background: none;
   }
 }
@@ -40,11 +37,10 @@
   display: block;
   width: 36px;
   height: 28px;
+  padding: 2px 6px;
   border: none;
   border-radius: 4px;
-  padding: 2px 6px;
   box-shadow: $box-shadow-btn-control;
-
   background: $bg-button-control;
   transition: background 0.2s linear, color 0.2s linear;
   cursor: pointer;
@@ -52,8 +48,8 @@
   &--create {
     width: 59px;
     height: 18px;
-    font-size: 12px;
     margin-top: 10px;
+    font-size: 12px;
   }
 
   &--next {
@@ -72,20 +68,18 @@
 
   &:disabled,
   &:disabled .btn-icon path {
-    transition: none;
     border: 1px solid #cfcfcf;
-
     background: #ffffff;
     fill: #cfcfcf;
+    transition: none;
   }
 
   &--today {
     width: 60px;
     height: 20px;
-
     font-family: "Roboto";
-    font-weight: 400;
     font-size: 12px;
+    font-weight: 400;
     line-height: 14px;
     color: #292929;
 
@@ -94,9 +88,9 @@
     }
 
     &:disabled {
-      transition: none;
-      background: #ffffff;
       color: #cfcfcf;
+      background: #ffffff;
+      transition: none;
     }
   }
 
@@ -104,7 +98,6 @@
     width: 60px;
     height: 18px;
     padding: 2px 6px;
-
     font-size: 12px;
   }
 }

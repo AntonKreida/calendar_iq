@@ -2,8 +2,8 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
-  line-height: 1.5;
   font-weight: 400;
+  line-height: 1.5;
   color: #000;
   background: #fff;
 }
@@ -55,31 +55,31 @@ img {
   z-index: 0;
 }
 .form__icon {
-  width: 20px;
-  height: 20px;
   position: absolute;
   left: -40px;
   top: 5px;
   z-index: 1;
+  width: 20px;
+  height: 20px;
   border: none;
-  cursor: pointer;
   background: none;
+  cursor: pointer;
 }
 .form__icon:hover path {
   fill: #000;
   transform: scale(1.1);
 }
 .form__input {
-  display: block;
   position: relative;
   left: 0;
   top: 0;
   z-index: 0;
+  display: block;
   width: 210px;
   padding: 6px 12px;
   border: 1px solid #cfcfcf;
-  box-shadow: inset 0px 0px 1px 2px rgba(0, 0, 0, 0.2509803922);
   border-radius: 4px;
+  box-shadow: inset 0px 0px 1px 2px rgba(0, 0, 0, 0.2509803922);
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -117,14 +117,14 @@ img {
   background: #f4f4f4;
 }
 .form__textarea {
+  resize: none;
   width: 100%;
   height: 125px;
   margin-top: 16px;
-  resize: none;
+  padding: 6px 12px;
   border: 1px solid #cfcfcf;
   border-radius: 4px;
   box-shadow: inset 0px 0px 1px 2px rgba(0, 0, 0, 0.2509803922);
-  padding: 6px 12px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -195,11 +195,11 @@ img {
 .popup__inner::before {
   content: "";
   position: absolute;
-  width: 24px;
-  height: 24px;
   left: 10px;
   top: -20px;
   z-index: -1;
+  width: 24px;
+  height: 24px;
   background: #fff;
   transform: rotate(45deg);
 }
@@ -231,8 +231,8 @@ img {
 .main__data-text {
   width: 130px;
   font-family: "Roboto";
-  font-weight: 400;
   font-size: 18px;
+  font-weight: 400;
   line-height: 21px;
   text-align: center;
   color: #292929;
@@ -246,28 +246,28 @@ img {
 
 .calendar {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
   padding-bottom: 10px;
 }
 
 .day {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  justify-content: flex-start;
-  max-width: 146px;
-  width: 100%;
-  height: 120px;
-  border: 1px solid #292929;
-  padding: 8px;
   position: relative;
   left: 0;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+  max-width: 146px;
+  width: 100%;
+  height: 120px;
+  padding: 8px;
+  border: 1px solid #292929;
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
   font-size: 14px;
+  font-weight: 400;
   line-height: 1.1;
   color: #6b6b6b;
   transition: background 0.1s linear, border 0.2s linear, box-shadow 0.2s linear;
@@ -276,8 +276,8 @@ img {
   background: #f4f4f4;
 }
 .day:active {
-  background: #ffffff;
   border: 1px solid #292929;
+  background: #ffffff;
   box-shadow: 0px 0px 10px 2px #0271c7;
 }
 .day__head {
@@ -286,8 +286,8 @@ img {
 }
 .day__title {
   height: 16px;
-  font-weight: 400;
   font-size: 14px;
+  font-weight: 400;
   line-height: 16px;
   color: #292929;
 }
@@ -299,6 +299,10 @@ img {
   color: #6b6b6b;
 }
 .day__form {
+  position: absolute;
+  left: 150px;
+  top: 0px;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -306,21 +310,17 @@ img {
   width: 300px;
   height: 315px;
   padding: 12px;
-  position: absolute;
-  left: 150px;
-  top: 0px;
-  z-index: 2;
   background: #fff;
   filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.2509803922));
 }
 .day__form::before {
   content: "";
-  width: 24px;
-  height: 24px;
   position: absolute;
   top: 20px;
   left: -5px;
   z-index: -2;
+  width: 24px;
+  height: 24px;
   transform: rotate(45deg);
   background: #fff;
 }
@@ -349,18 +349,18 @@ img {
   width: 80px;
   height: 26px;
   padding: 6px 12px 6px 12px;
-  border-radius: 2px;
   border: none;
+  border-radius: 2px;
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
   font-size: 12px;
+  font-weight: 400;
   line-height: 1.1;
   color: #fff;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2509803922);
   background-color: #0271c7;
-  cursor: pointer;
   transition: background 0.2s linear;
+  cursor: pointer;
 }
 .btn:focus {
   outline: none;
@@ -384,9 +384,9 @@ img {
   display: block;
   width: 36px;
   height: 28px;
+  padding: 2px 6px;
   border: none;
   border-radius: 4px;
-  padding: 2px 6px;
   box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.25);
   background: #fff;
   transition: background 0.2s linear, color 0.2s linear;
@@ -395,8 +395,8 @@ img {
 .btn-control--create {
   width: 59px;
   height: 18px;
-  font-size: 12px;
   margin-top: 10px;
+  font-size: 12px;
 }
 .btn-control--next {
   transform: rotate(180deg);
@@ -409,17 +409,17 @@ img {
   background: #cfcfcf;
 }
 .btn-control:disabled, .btn-control:disabled .btn-icon path {
-  transition: none;
   border: 1px solid #cfcfcf;
   background: #ffffff;
   fill: #cfcfcf;
+  transition: none;
 }
 .btn-control--today {
   width: 60px;
   height: 20px;
   font-family: "Roboto";
-  font-weight: 400;
   font-size: 12px;
+  font-weight: 400;
   line-height: 14px;
   color: #292929;
 }
@@ -427,9 +427,9 @@ img {
   color: #fff;
 }
 .btn-control--today:disabled {
-  transition: none;
-  background: #ffffff;
   color: #cfcfcf;
+  background: #ffffff;
+  transition: none;
 }
 .btn-control-form {
   width: 60px;

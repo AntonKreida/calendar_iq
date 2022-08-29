@@ -43,9 +43,6 @@ img {
     position: relative;
     gap: 10px; }
 
-.icon--svg path {
-  transition: fill 0.2s linear, transform 0.2s linear; }
-
 .form {
   position: relative;
   left: 0;
@@ -134,39 +131,6 @@ img {
     display: flex;
     gap: 20px; }
 
-.event {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  width: 300px;
-  height: 315px;
-  padding: 12px;
-  position: absolute;
-  left: 150px;
-  top: 0px;
-  z-index: 2;
-  background: #fff;
-  filter: drop-shadow(0px 0px 7px #00000040); }
-  .event::before {
-    content: "";
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 20px;
-    left: -5px;
-    z-index: -2;
-    transform: rotate(45deg);
-    background: #fff; }
-  .event__form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px; }
-  .event__input {
-    width: 270px;
-    height: 28px; }
-
 .popup {
   display: block;
   position: absolute;
@@ -174,7 +138,7 @@ img {
   top: 150%;
   z-index: 2000;
   width: 300px;
-  height: 94px;
+  height: 110px;
   padding: 12px;
   background: #fff;
   filter: drop-shadow(0px 0px 7px #00000040); }
@@ -196,18 +160,15 @@ img {
       z-index: -1;
       background: #fff;
       transform: rotate(45deg); }
+  .popup-button {
+    width: 10px;
+    height: 15px;
+    margin-left: auto;
+    border: none;
+    background: none; }
   .popup__input {
     width: 276px;
     height: 28px; }
-
-.icon--cross {
-  margin-left: auto;
-  cursor: pointer;
-  transition: transform 0.2s linear; }
-  .icon--cross:hover path {
-    transform: scale(1.1); }
-  .icon--cross--form {
-    margin-right: 10px; }
 
 .main {
   display: flex;
@@ -220,20 +181,19 @@ img {
     gap: 10px;
     height: 48px;
     padding: 12px 0px; }
+  .main__data-text {
+    width: 130px;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #292929; }
   .main__control {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px; }
-
-.data-text {
-  width: 130px;
-  font-family: "Roboto";
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
-  text-align: center;
-  color: #292929; }
 
 .calendar {
   display: flex;
@@ -282,6 +242,39 @@ img {
     font-size: 14px;
     line-height: 16px;
     color: #6b6b6b; }
+  .day__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 300px;
+    height: 315px;
+    padding: 12px;
+    position: absolute;
+    left: 150px;
+    top: 0px;
+    z-index: 2;
+    background: #fff;
+    filter: drop-shadow(0px 0px 7px #00000040); }
+    .day__form::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 20px;
+      left: -5px;
+      z-index: -2;
+      transform: rotate(45deg);
+      background: #fff; }
+    .day__form-event {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      width: 100%; }
+    .day__form-input {
+      width: 100%;
+      height: 28px; }
 
 .active {
   border: 1px solid #292929;
@@ -309,15 +302,15 @@ img {
   .btn:focus {
     outline: none; }
   .btn:hover {
-    background-color: #27A1FF; }
+    background-color: #27a1ff; }
   .btn:active {
-    background-color: #C2E4FE; }
+    background-color: #c2e4fe; }
   .btn:disabled {
-    background-color: #CFCFCF; }
-
-.btn-icon {
-  display: block;
-  transition: fill 0.2s linear; }
+    background-color: #cfcfcf; }
+  .btn-form-closest {
+    margin-left: auto;
+    border: none;
+    background: none; }
 
 .btn-control {
   display: block;
@@ -328,7 +321,7 @@ img {
   padding: 2px 6px;
   box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.25);
   background: #fff;
-  transition: background 0.2s linear, color 0.2s linear;
+  transition: background 0.2s linear, color 0.2s linear;
   cursor: pointer; }
   .btn-control--create {
     width: 59px;
@@ -339,20 +332,20 @@ img {
     transform: rotate(180deg); }
   .btn-control:hover,
   .btn-control:hover .btn-icon path {
-    background: #6B6B6B;
+    background: #6b6b6b;
     fill: #fff; }
   .btn-control:active {
-    background: #CFCFCF; }
+    background: #cfcfcf; }
   .btn-control:disabled,
   .btn-control:disabled .btn-icon path {
     transition: none;
-    border: 1px solid #CFCFCF;
-    background: #FFFFFF;
-    fill: #CFCFCF; }
+    border: 1px solid #cfcfcf;
+    background: #ffffff;
+    fill: #cfcfcf; }
   .btn-control--today {
     width: 60px;
     height: 20px;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
@@ -361,11 +354,23 @@ img {
       color: #fff; }
     .btn-control--today:disabled {
       transition: none;
-      background: #FFFFFF;
-      color: #CFCFCF; }
-  .btn-control--form {
+      background: #ffffff;
+      color: #cfcfcf; }
+  .btn-control-form {
     width: 60px;
     height: 18px;
     padding: 2px 6px;
     font-size: 12px; }
+
+.icon-svg {
+  display: block; }
+  .icon-svg--cross {
+    margin-left: auto;
+    cursor: pointer; }
+    .icon-svg--cross:hover path {
+      transform: scale(1.1); }
+    .icon-svg--cross--form {
+      margin-right: 10px; }
+  .icon-svg path {
+    transition: fill 0.2s linear, transform 0.2s linear; }
 

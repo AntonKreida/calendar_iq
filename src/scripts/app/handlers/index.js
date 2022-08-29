@@ -2,7 +2,7 @@
 import renderCal from '../calendar/index';
 import { getDate, date } from '../utils/getDate';
 import attributes from '../utils/getAttributes';
-import { showFormEventDay, unlockPopup } from '../modal/index';
+import { showFormDay, unlockPopup } from '../modal/index';
 import { templatePopup } from '../template/index';
 
 const { month, year } = getDate();
@@ -59,7 +59,7 @@ const handlers = {
 		if (!target.classList.contains('js-day')) {
 			return;
 		}
-		showFormEventDay(target);
+		showFormDay(target);
 	},
 	unlockEventForm(event) {
 		const { target } = event;

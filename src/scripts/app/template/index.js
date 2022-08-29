@@ -14,7 +14,7 @@ export const templateDay = (numberDay) => {
 };
 
 // generation template form day
-export const templateEventForm = ({
+export const templateFormDay = ({
 	type, img, placeholder, buttonName, name,
 }) => {
 	const template = `

@@ -1,9 +1,9 @@
 /* eslint-disable import/no-cycle */
-import { templateEventForm } from '../template';
+import { templateFormDay } from '../template';
 import handlers from '../handlers/index';
 import attributes from '../utils/getAttributes';
 
-export const showFormEventDay = (targetDay) => {
+export const showFormDay = (targetDay) => {
 	if (targetDay.classList.contains('active')) {
 		targetDay.classList.remove('active', 'block');
 		targetDay.removeChild(targetDay.lastChild);
@@ -17,7 +17,7 @@ export const showFormEventDay = (targetDay) => {
 		});
 
 		targetDay.classList.add('active', 'block');
-		targetDay.appendChild(templateEventForm(attributes));
+		targetDay.appendChild(templateFormDay(attributes));
 
 		const iconEventForm = targetDay.querySelector('.js-btn-form-closest');
 		iconEventForm.addEventListener('click', handlers.unlockEventForm);

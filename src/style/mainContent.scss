@@ -13,8 +13,8 @@
   }
 
   &__data-text {
-    width: 130px;
     @include format-text-data;
+    width: 130px;
   }
   
 

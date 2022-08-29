@@ -24,10 +24,10 @@ const handlers = {
 		target.setAttribute('disabled', 'disabled');
 
 		const popupForm = parent.lastChild;
-		const icon = popupForm.querySelector('.js-popup-cross');
-		const buttonPopup = popupForm.querySelector('.js-btn-create');
-		icon.addEventListener('click', unlockPopup);
-		buttonPopup.addEventListener('click', unlockPopup);
+		const buttonPopupClose = popupForm.querySelector('.js-popup-button');
+		const buttonPopupCreate = popupForm.querySelector('.js-btn-create');
+		buttonPopupClose.addEventListener('click', unlockPopup);
+		buttonPopupCreate.addEventListener('click', unlockPopup);
 	},
 	prevMonthHandler() {
 		const days = document.querySelectorAll('.js-day');

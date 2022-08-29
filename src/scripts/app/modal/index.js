@@ -19,13 +19,13 @@ export const showFormEventDay = (targetDay) => {
 		targetDay.classList.add('active', 'block');
 		targetDay.appendChild(templateEventForm(attributes));
 
-		const iconEventForm = targetDay.querySelector('.js-icon-event');
+		const iconEventForm = targetDay.querySelector('.js-btn-form-closest');
 		iconEventForm.addEventListener('click', handlers.unlockEventForm);
 
 		const buttonFormEvent = targetDay.querySelector('.js-btn-event-form');
 		buttonFormEvent.addEventListener('click', handlers.unlockEventForm);
 
-		const eventForm = targetDay.querySelector('.event');
+		const eventForm = targetDay.querySelector('.day__form');
 		eventForm.addEventListener('click', handlers.stopAscent);
 	}
 };

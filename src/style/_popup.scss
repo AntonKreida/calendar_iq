@@ -5,7 +5,7 @@
   top: 150%;
   z-index: 2000;
   width: 300px;
-  height: 94px;
+  height: 110px;
   padding: 12px;
 
   background: $bg-color-popup;
@@ -34,22 +34,19 @@
     }
   }
 
+  &-button {
+    width: 10px;
+    height: 15px;
+    margin-left: auto;
+    border: none;
+
+    background: none;
+  }
+
   &__input {
     width: 276px;
     height: 28px;
   }
 }
 
-.icon--cross {
-  margin-left: auto;
-  cursor: pointer;
-  transition: transform 0.2s linear;
 
-  &:hover path {
-    transform: $transform-icon--cross;
-  }
-
-  &--form {
-    margin-right: 10px;
-  }
-}

@@ -1,110 +1,132 @@
 .btn {
-    width: 80px;
-    height: 26px;
-    padding: 6px 12px 6px 12px;
-    border-radius: 2px;
+  width: 80px;
+  height: 26px;
+  padding: 6px 12px 6px 12px;
+  border-radius: 2px;
+  border: none;
+
+  @include format-text-button;
+
+  box-shadow: $box-shadow-button;
+  background-color: $bg-button;
+  cursor: pointer;
+  transition: background 0.2s linear;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: #27a1ff;
+  }
+
+  &:active {
+    background-color: #c2e4fe;
+  }
+
+  &:disabled {
+    background-color: #cfcfcf;
+  }
+
+  &-form-closest {
+    margin-left: auto;
     border: none;
 
-    @include format-text-button;
-
-    box-shadow: $box-shadow-button;
-    background-color: $bg-button;
-    cursor: pointer;
-    transition: background 0.2s linear;
-
-    &:focus {
-        outline: none;
-    }
-
-    &:hover {
-        background-color: #27A1FF;
-    }
-
-    &:active  {
-        background-color:  #C2E4FE;
-    }
-
-    &:disabled {
-        background-color: #CFCFCF;
-    }
-}
-
-.btn-icon {
-    display: block;
-    transition: fill 0.2s linear;
+    background: none;
+  }
 }
 
 .btn-control {
-    display: block;
-    width: 36px;
-    height: 28px;
-    border: none;
-    border-radius: 4px;
-    padding: 2px 6px;
-    box-shadow: $box-shadow-btn-control;
+  display: block;
+  width: 36px;
+  height: 28px;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  box-shadow: $box-shadow-btn-control;
 
-    background: $bg-button-control;
-    transition: 
-    background 0.2s linear,
-    color 0.2s linear;
+  background: $bg-button-control;
+  transition: background 0.2s linear, color 0.2s linear;
+  cursor: pointer;
+
+  &--create {
+    width: 59px;
+    height: 18px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  &--next {
+    transform: rotate(180deg);
+  }
+
+  &:hover,
+  &:hover .btn-icon path {
+    background: #6b6b6b;
+    fill: #fff;
+  }
+
+  &:active {
+    background: #cfcfcf;
+  }
+
+  &:disabled,
+  &:disabled .btn-icon path {
+    transition: none;
+    border: 1px solid #cfcfcf;
+
+    background: #ffffff;
+    fill: #cfcfcf;
+  }
+
+  &--today {
+    width: 60px;
+    height: 20px;
+
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #292929;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:disabled {
+      transition: none;
+      background: #ffffff;
+      color: #cfcfcf;
+    }
+  }
+
+  &--form {
+    width: 60px;
+    height: 18px;
+    padding: 2px 6px;
+
+    font-size: 12px;
+  }
+}
+
+.icon-svg {
+  display: block;
+  
+  &--cross {
+    margin-left: auto;
     cursor: pointer;
 
-    &--create {
-        width: 59px;
-        height: 18px;
-        font-size: 12px;
-        margin-top: 10px;
-    }
-
-    &--next {
-        transform: rotate(180deg);
-    }
-
-    &:hover,
-    &:hover .btn-icon path {
-        background: #6B6B6B;
-        fill: #fff;
-    }
-
-    &:active {
-        background: #CFCFCF;
-    }
-
-    &:disabled,
-    &:disabled .btn-icon path {
-        transition: none;
-        border: 1px solid #CFCFCF;
-
-        background: #FFFFFF;
-        fill: #CFCFCF;
-    }
-
-    &--today {
-        width: 60px;
-        height: 20px;
-
-        font-family: 'Roboto';
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 14px;
-        color: #292929;
-
-        &:hover {
-            color: #fff;
-        }
-
-        &:disabled {
-            transition: none;
-            background: #FFFFFF;
-            color: #CFCFCF;
-        }
+    &:hover path {
+      transform: $transform-icon--cross;
     }
 
     &--form {
-        width: 60px;
-        height: 18px;
-        padding: 2px 6px;
-
-        font-size: 12px;
+      margin-right: 10px;
     }
+  }
+  & path {
+    transition: fill 0.2s linear, transform 0.2s linear;
+  }
 }
+
+

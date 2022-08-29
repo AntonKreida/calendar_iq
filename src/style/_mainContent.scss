@@ -12,6 +12,13 @@
     padding: 12px 0px;
   }
 
+  &__data-text {
+    width: 130px;
+  
+    @include format-text-data;
+  }
+  
+
   &__control {
     display: flex;
     justify-content: space-between;

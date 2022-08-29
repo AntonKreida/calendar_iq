@@ -22,7 +22,7 @@ export const showFormEventDay = (targetDay) => {
 		const iconEventForm = targetDay.querySelector('.js-btn-form-closest');
 		iconEventForm.addEventListener('click', handlers.unlockEventForm);
 
-		const buttonFormEvent = targetDay.querySelector('.js-btn-event-form');
+		const buttonFormEvent = targetDay.querySelector('.js-btn-form');
 		buttonFormEvent.addEventListener('click', handlers.unlockEventForm);
 
 		const eventForm = targetDay.querySelector('.day__form');

@@ -27,8 +27,8 @@ export const templateEventForm = ({
     <input class="form__input day__form-input js-from-input" type="${type[0]}" placeholder="${placeholder[2]}" name="${name[2]}">
     <textarea class="form__textarea js-textarea" placeholder="${placeholder[3]}" name="${name[3]}"></textarea>
     <div class="form-control">
-      <button class="btn-control btn-control--form js-btn-event-form" type="${type[1]}">${buttonName[0]}</button>
-      <button class="btn-control btn-control--form" type="${type[2]}">${buttonName[1]}</button>
+      <button class="btn-control btn-control-form js-btn-form" type="${type[1]}">${buttonName[0]}</button>
+      <button class="btn-control btn-control-form" type="${type[2]}">${buttonName[1]}</button>
     </div>
   </form>`;
 

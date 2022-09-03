@@ -2,5 +2,9 @@
 node_modules
 dist
 .jshintrc
-.eslintrc
+.eslintrc.json
 .eslintignore
+.prettierrc.json
+.prettierignore
+.stylelintrc.json
+.stylelintignore

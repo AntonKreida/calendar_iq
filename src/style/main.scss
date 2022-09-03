@@ -1,9 +1,21 @@
-@import "vars";
-@import "mixins";
-@import "base";
-@import "header";
-@import "form";
-@import "popup";
-@import "mainContent";
-@import "calendar";
-@import "button";
+// -----------------------------------------------------------------------------
+// This file contains a list of imported files
+// -----------------------------------------------------------------------------
+
+// 1 - ABSTRACTS
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+// 2 - BASE
+@import "./base/base";
+@import "./base/helpers";
+
+// 3 - COMPONENTS
+@import "./components/buttons";
+
+// 4 - LAYOUT
+@import "./layout/header";
+@import "./layout/form";
+@import "./layout/day";
+@import "./layout/main";
+@import "./layout/popup";

@@ -1,23 +1,21 @@
 /* eslint-disable max-len */
 // generation template day
 export const templateDay = (numberDay) => {
-	const template = ` 
+  const template = ` 
 <div class = 'day js-day'>
-  <h4 class = 'day__head'>${numberDay}</h4>
+  <h4 class = 'day__head js-day-head'>${numberDay}</h4>
   <div class = 'day__title'>
     <h4 class = 'day__title'></h4>
   </div>
   <div class = 'day__text'></div>
 </div>`;
 
-	return template;
+  return template;
 };
 
 // generation template form day
-export const templateFormDay = ({
-	type, img, placeholder, buttonName, name,
-}) => {
-	const template = `
+export const templateFormDay = ({ type, img, placeholder, buttonName, name,}) => {
+  const template = `
   <button class="btn-form-closest js-btn-form-closest" type="button">
     <img class="icon-svg--cross" src="${img}" alt="none">
   </button>  
@@ -32,15 +30,15 @@ export const templateFormDay = ({
     </div>
   </form>`;
 
-	const formEvent = document.createElement('div');
-	formEvent.classList.add('day__form');
-	formEvent.innerHTML = template;
+  const formEvent = document.createElement("div");
+  formEvent.classList.add("day__form", "js-day-form");
+  formEvent.innerHTML = template;
 
-	return formEvent;
+  return formEvent;
 };
 
 export const templatePopup = ({ type, buttonName, placeholder }) => {
-	const template = `
+  const template = `
   <div class="popup__inner">
       <button class="popup-button js-popup-button" type"${type[1]}">
         <svg class="icon-svg--cross" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,9 +51,9 @@ export const templatePopup = ({ type, buttonName, placeholder }) => {
       </form>
   </div>`;
 
-	const popup = document.createElement('div');
-	popup.classList.add('popup', 'js-popup');
-	popup.innerHTML = template;
+  const popup = document.createElement("div");
+  popup.classList.add("popup", "js-popup");
+  popup.innerHTML = template;
 
-	return popup;
+  return popup;
 };

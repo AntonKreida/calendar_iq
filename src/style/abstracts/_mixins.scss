@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// This file contains all @mixin for the project
+// -----------------------------------------------------------------------------
+
+@mixin format-text {
+  font-family: $text-font-stack;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+@mixin format-text-button {
+  font-family: $text-font-stack;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: $white;
+  text-shadow: 0 0 4px #00000080;
+}

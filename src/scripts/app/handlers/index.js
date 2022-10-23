@@ -1,8 +1,8 @@
 /* eslint-disable import/no-cycle */
 import renderCal from "../calendar/index";
 import { getDate, date } from "../utils/getDate";
-import attributes from "../utils/getAttributes";
-import { showFormDay, unlockPopup } from "../modal/index";
+import attributes from "../utils/attributes";
+import showFormDay from "../modal/index";
 import { templatePopup } from "../template/index";
 
 const { month, year } = getDate();
@@ -26,8 +26,8 @@ const handlers = {
     const popupForm = parent.lastChild;
     const buttonPopupClose = popupForm.querySelector(".js-popup-button");
     const buttonPopupCreate = popupForm.querySelector(".js-btn-create");
-    buttonPopupClose.addEventListener("click", unlockPopup);
-    buttonPopupCreate.addEventListener("click", unlockPopup);
+    buttonPopupClose.addEventListener("click", handlers.unlockPopup);
+    buttonPopupCreate.addEventListener("click", handlers.unlockPopup);
   },
   prevMonthHandler() {
     const days = document.querySelectorAll(".js-day");
@@ -67,9 +67,58 @@ const handlers = {
     parent.classList.remove("active");
     parent.classList.remove("block");
     parent.removeChild(parent.lastChild);
+    handlers.checkDay(parent);
   },
   stopAscent(event) {
     event.stopPropagation();
+  },
+
+  unlockPopup(event) {
+    const { target } = event;
+    const parent = target.closest(".js-header-buttons");
+    const button = parent.querySelector(".js-btn-push");
+    button.removeAttribute("disabled");
+    parent.removeChild(parent.lastChild);
+  },
+
+  resetFormDay(event) {
+    const target = event.target.closest(".js-day");
+
+    const inputTitle = document.querySelector(".js-input-title");
+    const inputParty = document.querySelector(".js-input-party");
+    const textarea = document.querySelector(".js-textarea");
+
+    const dayTitle = target.querySelector(".js-title");
+    const daySubtitle = target.querySelector(".js-subtitle");
+    const dayText = target.querySelector(".js-text");
+
+    inputTitle.removeAttribute("value");
+    inputParty.removeAttribute("value");
+
+    inputTitle.value = "";
+    inputParty.value = "";
+    textarea.value = "";
+    textarea.textContent = "";
+
+    dayTitle.textContent = "";
+    daySubtitle.textContent = "";
+    dayText.textContent = "";
+  },
+
+  checkDay(target) {
+    const dayTitle = target.querySelector(".js-title");
+    const daySubtitle = target.querySelector(".js-subtitle");
+    const dayText = target.querySelector(".js-text");
+
+    if (
+      dayTitle.textContent.length > 0 ||
+      daySubtitle.textContent.length > 0 ||
+      dayText.textContent.length > 0
+    ) {
+      target.classList.add("valid");
+    } else {
+      target.classList.remove("valid");
+    }
   },
 };
 

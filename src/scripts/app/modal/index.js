@@ -1,9 +1,11 @@
 /* eslint-disable import/no-cycle */
 import { templateFormDay } from "../template";
 import handlers from "../handlers/index";
-import attributes from "../utils/getAttributes";
+import attributes from "../utils/attributes";
+import checkValidity from "../validator/index";
+import fillInputData from "./modal.input";
 
-export const showFormDay = (targetDay) => {
+const showFormDay = (targetDay) => {
   if (targetDay.classList.contains("active")) {
     targetDay.classList.remove("active", "block");
     targetDay.removeChild(targetDay.lastChild);
@@ -19,21 +21,19 @@ export const showFormDay = (targetDay) => {
     targetDay.classList.add("active", "block");
     targetDay.appendChild(templateFormDay(attributes));
 
+    checkValidity();
+    fillInputData(targetDay);
+    handlers.checkDay(targetDay);
+
     const iconEventForm = targetDay.querySelector(".js-btn-form-closest");
     iconEventForm.addEventListener("click", handlers.unlockEventForm);
 
-    const buttonFormEvent = targetDay.querySelector(".js-btn-form");
-    buttonFormEvent.addEventListener("click", handlers.unlockEventForm);
-
     const eventForm = targetDay.querySelector(".js-day-form");
     eventForm.addEventListener("click", handlers.stopAscent);
+
+    const buttonReset = targetDay.querySelector(".js-button-reset");
+    buttonReset.addEventListener("click", handlers.resetFormDay);
   }
 };
 
-export const unlockPopup = (event) => {
-  const { target } = event;
-  const parent = target.closest(".js-header-buttons");
-  const button = parent.querySelector(".js-btn-push");
-  button.removeAttribute("disabled");
-  parent.removeChild(parent.lastChild);
-};
+export default showFormDay;

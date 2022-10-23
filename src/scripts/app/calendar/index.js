@@ -1,7 +1,8 @@
 import { getDate, date } from "../utils/getDate";
 import { templateDay } from "../template";
+import { getNumberDay, getPrevYear, getNextYear, getNumberMonth } from "../utils/fillAttributesDate";
 
-const { month } = getDate();
+const { month, year } = getDate();
 
 const renderCal = () => {
   date.setDate(month);
@@ -33,7 +34,7 @@ const renderCal = () => {
     0
   ).getDate();
 
-  const arrNameMonth = [
+  const nameMonthList = [
     "Январь",
     "Февраль",
     "Март",
@@ -48,7 +49,7 @@ const renderCal = () => {
     "Декабрь",
   ];
 
-  const arrNameDay = [
+  const nameDayList = [
     "Понедельник",
     "Вторник",
     "Среда",
@@ -60,31 +61,40 @@ const renderCal = () => {
 
   const monthTitle = document.querySelector(".js-data-month");
   const yearTitle = document.querySelector(".js-data-year");
-  const monthName = arrNameMonth[date.getMonth()];
+  const monthName = nameMonthList[date.getMonth()];
   monthTitle.textContent = monthName;
   yearTitle.textContent = date.getFullYear();
 
-  const monthDay = document.querySelector(".js-calendar");
+  const calendar = document.querySelector(".js-calendar");
 
   for (let x = firstDayIndex; x > 0; x -= 1) {
-    monthDay.innerHTML += templateDay([prevLastDay - x + 1]);
+    calendar.innerHTML += templateDay([prevLastDay - x + 1]);
+    const prevDay = calendar.lastChild;
+    prevDay.dataset.day = `${getNumberDay(prevLastDay - x + 1)}.${getNumberMonth(Number(date.getMonth() - 1) + 1)}.${getPrevYear(monthTitle, x)}`;
   }
 
   for (let i = 1; i <= lastDayMonth; i += 1) {
-    monthDay.innerHTML += templateDay(i);
+    calendar.innerHTML += templateDay(i);
+    const currentDay = calendar.lastChild;
+    currentDay.dataset.day = `${getNumberDay(i)}.${getNumberMonth(Number(date.getMonth()) + 1)}.${year}`;
+    
   }
 
   for (let j = 1; j <= nextDays; j += 1) {
-    monthDay.innerHTML += templateDay(j);
+    calendar.innerHTML += templateDay(j);
+    const nextDay = calendar.lastChild;
+    nextDay.dataset.day = `${getNumberDay(j)}.${getNumberMonth(Number(date.getMonth() + 1) + 1)}.${getNextYear(monthTitle)}`;
   }
 
   const titleDay = document.querySelectorAll(".js-day-head");
 
   titleDay.forEach((person, i) => {
     if (i < 7) {
-      person.prepend(document.createTextNode(`${arrNameDay[i]}, `));
+      person.prepend(document.createTextNode(`${nameDayList[i]}, `));
     }
   });
 };
+
+
 
 export default renderCal;

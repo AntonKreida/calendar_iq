@@ -43,15 +43,19 @@
     border: 1px solid $dodger-blue;
   }
 
-  &:invalid {
-    border: 1px solid $mandy;
-    color: $mandy;
-  }
-
   &:disabled {
     border: 1px solid $alto;
     color: $alto;
     background: $wild-sand;
+  }
+
+  &.invalid {
+    border: 1px solid $mandy;
+    //color: $mandy;
+  }
+
+  &.valid {
+    border: 1px solid $pastel-green;
   }
 }
 
@@ -80,15 +84,33 @@
     outline: none;
   }
 
-  &:invalid {
+  &.valid {
+    border: 1px solid $pastel-green;
+  }
+
+  &.invalid {
     border: 1px solid $mandy;
-    color: $mandy;
+    //color: $mandy;
   }
 
   &:disabled {
     border: 1px solid $alto;
     color: $alto;
     background: $wild-sand;
+  }
+}
+
+.form__footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-message {
+  color: $mandy;
+
+  &.hidden {
+    display: none;
   }
 }
 

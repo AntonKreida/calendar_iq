@@ -2,10 +2,12 @@ export const getDate = () => {
   const date = new Date();
   const month = date.getMonth();
   const year = date.getFullYear();
+  const monthDay = date.getDate();
   const day = date.getDay();
   return {
-    month,
     year,
+    month,
+    monthDay,
     day,
   };
 };

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 5px;
   max-width: 146px;
   width: 100%;
   height: 120px;
@@ -26,27 +26,48 @@
     background: $white;
     box-shadow: 0 0 10px 2px $dodger-blue;
   }
+
+  &.valid {
+    background: $dodger-blue;
+  }
 }
 
 .day__head {
+  width: 100%;
   font-family: $text-font-stack;
   font-weight: inherit;
+  overflow: hidden;
 }
 
 .day__title {
+  width: 100%;
   height: 16px;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
   color: $mine-shaft;
+  overflow: hidden;
+}
+
+.day__subtitle {
+  width: 100%;
+  height: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: $mine-shaft;
+  overflow: hidden;
 }
 
 .day__text {
+  width: 100%;
   width: 125px;
   height: 32px;
   font-size: 14px;
   line-height: 16px;
   color: $dove-gray;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 .day__form {

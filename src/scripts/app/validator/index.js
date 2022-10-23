@@ -41,6 +41,7 @@ const checkValidForm = () => {
     dayText.textContent = textarea.value;
 
     handlers.unlockEventForm(event);
+    handlers.saveLocalElement(day);
   });
 };
 

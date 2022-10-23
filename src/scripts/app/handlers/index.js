@@ -68,6 +68,7 @@ const handlers = {
     parent.classList.remove("block");
     parent.removeChild(parent.lastChild);
     handlers.checkDay(parent);
+    handlers.resetLocalElement(parent);
   },
   stopAscent(event) {
     event.stopPropagation();
@@ -119,6 +120,62 @@ const handlers = {
     } else {
       target.classList.remove("valid");
     }
+  },
+
+  saveLocalElement(target) {
+    const dayTitle = target.querySelector(".js-title");
+    const daySubtitle = target.querySelector(".js-subtitle");
+    const dayText = target.querySelector(".js-text");
+
+    if (
+      dayTitle.textContent.length > 0 ||
+      daySubtitle.textContent.length > 0 ||
+      dayText.textContent.length > 0
+    ) {
+      const dataDay = target.dataset.day;
+      const html = target.innerHTML;
+      localStorage.setItem(dataDay, html);
+    }
+  },
+
+  resetLocalElement(target) {
+    const dayTitle = target.querySelector(".js-title");
+    const daySubtitle = target.querySelector(".js-subtitle");
+    const dayText = target.querySelector(".js-text");
+
+    if (
+      dayTitle.textContent.length === 0 ||
+      daySubtitle.textContent.length === 0 ||
+      dayText.textContent.length === 0
+    ) {
+      const dataDay = target.dataset.day;
+      localStorage.removeItem(dataDay);
+    }
+  },
+
+  renderSaveDay() {
+    const days = document.querySelectorAll(".js-day");
+
+    days.forEach((elem) => {
+      if (localStorage.getItem(elem.dataset.day) !== null) {
+        // eslint-disable-next-line no-param-reassign
+        elem.innerHTML = localStorage.getItem(elem.dataset.day);
+      }
+
+      const dayTitle = elem.querySelector(".js-title");
+      const daySubtitle = elem.querySelector(".js-subtitle");
+      const dayText = elem.querySelector(".js-text");
+
+      if (
+        dayTitle.textContent.length > 0 ||
+        daySubtitle.textContent.length > 0 ||
+        dayText.textContent.length > 0
+      ) {
+        elem.classList.add("valid");
+      } else {
+        elem.classList.remove("valid");
+      }
+    });
   },
 };
 

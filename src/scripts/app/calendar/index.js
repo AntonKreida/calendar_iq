@@ -1,6 +1,13 @@
+/* eslint-disable import/no-cycle */
 import { getDate, date } from "../utils/getDate";
+import handlers from "../handlers/index";
 import { templateDay } from "../template";
-import { getNumberDay, getPrevYear, getNextYear, getNumberMonth } from "../utils/fillAttributesDate";
+import {
+  getNumberDay,
+  getPrevYear,
+  getNextYear,
+  getNumberMonth,
+} from "../utils/fillAttributesDate";
 
 const { month, year } = getDate();
 
@@ -70,20 +77,28 @@ const renderCal = () => {
   for (let x = firstDayIndex; x > 0; x -= 1) {
     calendar.innerHTML += templateDay([prevLastDay - x + 1]);
     const prevDay = calendar.lastChild;
-    prevDay.dataset.day = `${getNumberDay(prevLastDay - x + 1)}.${getNumberMonth(Number(date.getMonth() - 1) + 1)}.${getPrevYear(monthTitle, x)}`;
+    prevDay.dataset.day = `${getNumberDay(
+      prevLastDay - x + 1
+    )}.${getNumberMonth(Number(date.getMonth() - 1) + 1)}.${getPrevYear(
+      monthTitle,
+      x
+    )}`;
   }
 
   for (let i = 1; i <= lastDayMonth; i += 1) {
     calendar.innerHTML += templateDay(i);
     const currentDay = calendar.lastChild;
-    currentDay.dataset.day = `${getNumberDay(i)}.${getNumberMonth(Number(date.getMonth()) + 1)}.${year}`;
-    
+    currentDay.dataset.day = `${getNumberDay(i)}.${getNumberMonth(
+      Number(date.getMonth()) + 1
+    )}.${year}`;
   }
 
   for (let j = 1; j <= nextDays; j += 1) {
     calendar.innerHTML += templateDay(j);
     const nextDay = calendar.lastChild;
-    nextDay.dataset.day = `${getNumberDay(j)}.${getNumberMonth(Number(date.getMonth() + 1) + 1)}.${getNextYear(monthTitle)}`;
+    nextDay.dataset.day = `${getNumberDay(j)}.${getNumberMonth(
+      Number(date.getMonth() + 1) + 1
+    )}.${getNextYear(monthTitle)}`;
   }
 
   const titleDay = document.querySelectorAll(".js-day-head");
@@ -93,8 +108,8 @@ const renderCal = () => {
       person.prepend(document.createTextNode(`${nameDayList[i]}, `));
     }
   });
+
+  handlers.renderSaveDay();
 };
-
-
 
 export default renderCal;

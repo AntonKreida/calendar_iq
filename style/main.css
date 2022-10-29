@@ -1,7 +1,8 @@
 /*!**************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style/main.scss ***!
   \**************************************************************************************************************/
-body {
+.body {
+  position: relative;
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -68,7 +69,7 @@ img {
   .btn:active {
     background: #c2e4fe; }
   .btn:disabled {
-    background: #cfcfcf; }
+    background: #d9d9d9; }
 
 .btn-control {
   font-family: "Roboto", sans-serif;
@@ -93,11 +94,11 @@ img {
     background: #6b6b6b;
     fill: white; }
   .btn-control:active {
-    background: #cfcfcf; }
+    background: #d9d9d9; }
   .btn-control:disabled {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #d9d9d9;
     background: white;
-    fill: #cfcfcf;
+    fill: #d9d9d9;
     transition: none; }
   .btn-control:nth-child(3) {
     transform: rotate(180deg); }
@@ -126,7 +127,7 @@ img {
   .btn-control--today:hover {
     color: white; }
   .btn-control--today:disabled {
-    color: #cfcfcf;
+    color: #d9d9d9;
     background: white; }
 
 .header {
@@ -170,7 +171,7 @@ img {
   display: block;
   width: 210px;
   padding: 6px 12px;
-  border: 1px solid #cfcfcf;
+  border: 1px solid #d9d9d9;
   border-radius: 4px;
   box-shadow: inset 0 0 1px 2px rgba(0, 0, 0, 0.25);
   color: #292929;
@@ -183,12 +184,12 @@ img {
     background: url(../assets/icon_cross.svg) no-repeat center;
     cursor: pointer; }
   .form__input::placeholder {
-    color: #cfcfcf; }
+    color: #d9d9d9; }
   .form__input:focus {
     border: 1px solid #27a1ff; }
   .form__input:disabled {
-    border: 1px solid #cfcfcf;
-    color: #cfcfcf;
+    border: 1px solid #d9d9d9;
+    color: #d9d9d9;
     background: #f4f4f4; }
   .form__input.invalid {
     border: 1px solid #e94e4e; }
@@ -205,7 +206,7 @@ img {
   height: 125px;
   margin-top: 16px;
   padding: 6px 12px;
-  border: 1px solid #cfcfcf;
+  border: 1px solid #d9d9d9;
   border-radius: 4px;
   box-shadow: inset 0 0 1px 2px rgba(0, 0, 0, 0.25);
   color: #292929;
@@ -215,7 +216,7 @@ img {
     font-size: 14px;
     font-weight: 300;
     line-height: 1.1;
-    color: #cfcfcf; }
+    color: #d9d9d9; }
   .form__textarea:focus {
     border: 1px solid #27a1ff;
     outline: none; }
@@ -224,8 +225,8 @@ img {
   .form__textarea.invalid {
     border: 1px solid #e94e4e; }
   .form__textarea:disabled {
-    border: 1px solid #cfcfcf;
-    color: #cfcfcf;
+    border: 1px solid #d9d9d9;
+    color: #d9d9d9;
     background: #f4f4f4; }
 
 .form__footer {
@@ -275,8 +276,15 @@ img {
     border: 1px solid #292929;
     background: white;
     box-shadow: 0 0 10px 2px #27a1ff; }
+  .day.prev {
+    background: #d9d9d9; }
+  .day.next {
+    background: #d9d9d9; }
   .day.valid {
     background: #27a1ff; }
+  .day.current {
+    border: 1px solid #e94e4e;
+    background: #ffdbdb; }
 
 .day__head {
   width: 100%;
@@ -424,4 +432,31 @@ img {
 .popup__input {
   width: 276px;
   height: 28px; }
+
+.suggest {
+  position: absolute;
+  z-index: 2;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.25));
+  background: white; }
+  .suggest::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -13px;
+    z-index: -2;
+    width: 25px;
+    height: 25px;
+    margin-left: -12.5px;
+    background: white;
+    transform: rotate(45deg); }
+
+.suggest__item {
+  padding: 3px 8px;
+  transition: background 0.1s linear;
+  cursor: pointer; }
+  .suggest__item:hover {
+    background: #eaeaeb; }
+  .suggest__item:active {
+    background: #adadb3; }
 

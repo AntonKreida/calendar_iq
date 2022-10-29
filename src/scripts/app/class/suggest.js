@@ -114,9 +114,8 @@ class Suggest {
     renderCal();
   }
 
-  clickInput(event) {
-    const { target } = event;
-    target.value = "";
+  clickInput() {
+    this.element.value = "";
   }
 }
 

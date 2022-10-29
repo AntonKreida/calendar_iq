@@ -81,11 +81,6 @@ const handlers = {
     const { target } = event;
     const parent = target.closest(".js-header-buttons");
     const button = parent.querySelector(".js-btn-push");
-    const input = document.querySelector(".js-from-input");
-
-    const re = /,/;
-    const createEvent = input.value.split(re);
-    console.log(createEvent);
 
     button.removeAttribute("disabled");
     parent.removeChild(parent.lastChild);

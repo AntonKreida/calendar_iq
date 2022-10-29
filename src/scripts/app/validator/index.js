@@ -42,6 +42,7 @@ const checkValidForm = () => {
 
     handlers.unlockEventForm(event);
     handlers.saveLocalElement(day);
+    handlers.initSuggest();
   });
 };
 

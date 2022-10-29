@@ -9,7 +9,7 @@ import {
   getNumberMonth,
 } from "../utils/fillAttributesDate";
 
-const { month, year } = getDate();
+const { year, month, monthDay } = getDate();
 
 const renderCal = () => {
   date.setDate(month);
@@ -83,6 +83,7 @@ const renderCal = () => {
       monthTitle,
       x
     )}`;
+    prevDay.classList.add("prev");
   }
 
   for (let i = 1; i <= lastDayMonth; i += 1) {
@@ -90,7 +91,7 @@ const renderCal = () => {
     const currentDay = calendar.lastChild;
     currentDay.dataset.day = `${getNumberDay(i)}.${getNumberMonth(
       Number(date.getMonth()) + 1
-    )}.${year}`;
+    )}.${date.getFullYear()}`;
   }
 
   for (let j = 1; j <= nextDays; j += 1) {
@@ -99,6 +100,7 @@ const renderCal = () => {
     nextDay.dataset.day = `${getNumberDay(j)}.${getNumberMonth(
       Number(date.getMonth() + 1) + 1
     )}.${getNextYear(monthTitle)}`;
+    nextDay.classList.add("next");
   }
 
   const titleDay = document.querySelectorAll(".js-day-head");
@@ -106,6 +108,14 @@ const renderCal = () => {
   titleDay.forEach((person, i) => {
     if (i < 7) {
       person.prepend(document.createTextNode(`${nameDayList[i]}, `));
+    }
+  });
+
+  const today = `${monthDay}.${month + 1}.${year}`;
+  const monthDays = document.querySelectorAll(".js-day");
+  monthDays.forEach((day) => {
+    if (day.dataset.day === today) {
+      day.classList.add("current");
     }
   });
 

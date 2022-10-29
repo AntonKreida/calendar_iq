@@ -4,6 +4,7 @@ import { getDate, date } from "../utils/getDate";
 import attributes from "../utils/attributes";
 import showFormDay from "../modal/index";
 import { templatePopup } from "../template/index";
+import Suggest from "../class/suggest";
 
 const { month, year } = getDate();
 const calendar = document.querySelector(".js-calendar");
@@ -69,6 +70,8 @@ const handlers = {
     parent.removeChild(parent.lastChild);
     handlers.checkDay(parent);
     handlers.resetLocalElement(parent);
+
+    handlers.initSuggest();
   },
   stopAscent(event) {
     event.stopPropagation();
@@ -78,6 +81,12 @@ const handlers = {
     const { target } = event;
     const parent = target.closest(".js-header-buttons");
     const button = parent.querySelector(".js-btn-push");
+    const input = document.querySelector(".js-from-input");
+
+    const re = /,/;
+    const createEvent = input.value.split(re);
+    console.log(createEvent);
+
     button.removeAttribute("disabled");
     parent.removeChild(parent.lastChild);
   },
@@ -134,7 +143,13 @@ const handlers = {
     ) {
       const dataDay = target.dataset.day;
       const html = target.innerHTML;
-      localStorage.setItem(dataDay, html);
+      const saveDay = {
+        title: dayTitle.textContent,
+        data: dataDay,
+        html,
+      };
+
+      localStorage.setItem(dataDay, JSON.stringify(saveDay));
     }
   },
 
@@ -158,8 +173,9 @@ const handlers = {
 
     days.forEach((elem) => {
       if (localStorage.getItem(elem.dataset.day) !== null) {
+        const itemDay = JSON.parse(localStorage.getItem(elem.dataset.day));
         // eslint-disable-next-line no-param-reassign
-        elem.innerHTML = localStorage.getItem(elem.dataset.day);
+        elem.innerHTML = itemDay.html;
       }
 
       const dayTitle = elem.querySelector(".js-title");
@@ -176,6 +192,17 @@ const handlers = {
         elem.classList.remove("valid");
       }
     });
+  },
+
+  initSuggest() {
+    const inputNav = document.querySelector(".js-from-input");
+    const listDay = Object.values(localStorage);
+    const listDayTitle = [];
+    listDay.forEach((item) => {
+      listDayTitle.push(JSON.parse(item));
+    });
+    // eslint-disable-next-line no-unused-vars
+    const suggest = new Suggest(inputNav, listDayTitle);
   },
 };
 

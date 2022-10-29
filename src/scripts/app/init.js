@@ -26,9 +26,12 @@ const loaderScript = () => {
   const nextButton = document.querySelector(".js-btn-control-next");
   nextButton.addEventListener("click", handlers.nextMonthHandler);
 
-  // show form day;
+  // show form day
   const calendar = document.querySelector(".js-calendar");
   calendar.addEventListener("click", handlers.showEventForm);
+
+  // init suggest
+  handlers.initSuggest();
 
   renderCal();
 };

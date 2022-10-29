@@ -1,0 +1,34 @@
+.suggest {
+  position: absolute;
+  z-index: 2;
+  border-radius: 5px;
+  filter: $drop-shadow;
+  background: $white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -13px;
+    z-index: -2;
+    width: 25px;
+    height: 25px;
+    margin-left: -12.5px;
+    background: $white;
+    transform: rotate(45deg);
+  }
+}
+
+.suggest__item {
+    padding: 3px 8px;
+    transition: background 0.1s linear;
+    cursor: pointer;
+
+    &:hover {
+        background:$iron;
+    };
+
+    &:active {
+        background: $bombay;
+    }
+}

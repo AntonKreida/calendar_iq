@@ -27,8 +27,21 @@
     box-shadow: 0 0 10px 2px $dodger-blue;
   }
 
+  &.prev {
+    background: $alto;
+  }
+
+  &.next {
+    background: $alto;
+  }
+
   &.valid {
     background: $dodger-blue;
+  }
+
+  &.current {
+    border: 1px solid $mandy;
+    background: $cosmos;
   }
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { date} from "./getDate";
+import { date } from "./getDate";
 
 export const getPrevYear = (mountName) => {
   if (mountName.textContent === "Январь") {

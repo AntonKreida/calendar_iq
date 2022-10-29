@@ -16,7 +16,9 @@ class Suggest {
     this.onInput = this.onInput.bind(this);
     this.renderSuggest = this.renderSuggest.bind(this);
     this.clickSuggest = this.clickSuggest.bind(this);
+    this.clickInput = this.clickInput.bind(this);
 
+    this.element.addEventListener("click", this.clickInput);
     this.element.addEventListener("input", this.onInput);
   }
 
@@ -110,6 +112,11 @@ class Suggest {
     date.setFullYear(searchData[2]);
     date.setMonth(searchData[1] - 1);
     renderCal();
+  }
+
+  clickInput(event) {
+    const { target } = event;
+    target.value = "";
   }
 }
 

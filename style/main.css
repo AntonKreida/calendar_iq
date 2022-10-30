@@ -422,6 +422,21 @@ img {
     background: white;
     transform: rotate(45deg); }
 
+.popup-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.popup-message {
+  width: 200px;
+  height: 25px;
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #6b6b6b; }
+  .popup-message.invalid {
+    color: #e94e4e; }
+
 .popup-button {
   width: 10px;
   height: 15px;
@@ -432,6 +447,8 @@ img {
 .popup__input {
   width: 276px;
   height: 28px; }
+  .popup__input.invalid {
+    border: 1px solid #e94e4e; }
 
 .suggest {
   position: absolute;

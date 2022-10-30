@@ -344,6 +344,39 @@ img {
     height: 24px;
     transform: rotate(45deg);
     background: white; }
+  .day__form.top {
+    top: -200px; }
+    .day__form.top::before {
+      top: 250px; }
+
+.day__form-active {
+  position: absolute;
+  left: -320px;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 300px;
+  height: 315px;
+  padding: 12px;
+  background: white;
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.25)); }
+  .day__form-active::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 288px;
+    z-index: -2;
+    width: 24px;
+    height: 24px;
+    transform: rotate(45deg);
+    background: white; }
+  .day__form-active.top-active {
+    top: -200px; }
+    .day__form-active.top-active::before {
+      top: 250px; }
 
 .day__form-event {
   display: flex;

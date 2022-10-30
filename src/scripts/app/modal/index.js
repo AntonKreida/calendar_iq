@@ -31,6 +31,22 @@ const showFormDay = (targetDay) => {
     const eventForm = targetDay.querySelector(".js-day-form");
     eventForm.addEventListener("click", handlers.stopAscent);
 
+    const position = eventForm.getBoundingClientRect();
+
+    if (
+      position.right > window.innerWidth &&
+      position.bottom > window.innerHeight
+    ) {
+      eventForm.classList.remove("day__form");
+      eventForm.classList.add("day__form-active");
+      eventForm.classList.add("top-active");
+    } else if (position.bottom > window.innerHeight) {
+      eventForm.classList.add("top");
+    } else if (position.right > window.innerWidth) {
+      eventForm.classList.remove("day__form");
+      eventForm.classList.add("day__form-active");
+    }
+
     const buttonReset = targetDay.querySelector(".js-button-reset");
     buttonReset.addEventListener("click", handlers.resetFormDay);
   }

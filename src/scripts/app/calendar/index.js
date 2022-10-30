@@ -103,6 +103,7 @@ const renderCal = () => {
     nextDay.classList.add("next");
   }
 
+  handlers.renderSaveDay();
   const titleDay = document.querySelectorAll(".js-day-head");
 
   titleDay.forEach((person, i) => {
@@ -118,8 +119,6 @@ const renderCal = () => {
       day.classList.add("current");
     }
   });
-
-  handlers.renderSaveDay();
 };
 
 export default renderCal;

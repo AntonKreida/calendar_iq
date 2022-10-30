@@ -14,22 +14,12 @@ const handlers = {
     const HeaderFormInput = document.querySelector(".js-from-input");
     HeaderFormInput.focus();
   },
+
   onReloadHandler() {
     const { location } = window;
     location.reload();
   },
-  popupHandler(event) {
-    const { target } = event;
-    const parent = target.closest(".js-header-buttons");
-    parent.appendChild(templatePopup(attributes));
-    target.setAttribute("disabled", "disabled");
 
-    const popupForm = parent.lastChild;
-    const buttonPopupClose = popupForm.querySelector(".js-popup-button");
-    const buttonPopupCreate = popupForm.querySelector(".js-btn-create");
-    buttonPopupClose.addEventListener("click", handlers.unlockPopup);
-    buttonPopupCreate.addEventListener("click", handlers.unlockPopup);
-  },
   prevMonthHandler() {
     const days = document.querySelectorAll(".js-day");
     days.forEach((day) => {
@@ -38,6 +28,7 @@ const handlers = {
     date.setMonth(date.getMonth() - 1);
     renderCal();
   },
+
   todayHandler() {
     const days = document.querySelectorAll(".js-day");
     days.forEach((day) => {
@@ -47,6 +38,7 @@ const handlers = {
     date.setFullYear(year);
     renderCal();
   },
+
   nextMonthHandler() {
     const days = document.querySelectorAll(".js-day");
     days.forEach((day) => {
@@ -55,6 +47,7 @@ const handlers = {
     date.setMonth(date.getMonth() + 1);
     renderCal();
   },
+
   showEventForm(event) {
     const target = event.target.closest(".js-day");
     if (!target.classList.contains("js-day")) {
@@ -62,6 +55,7 @@ const handlers = {
     }
     showFormDay(target);
   },
+
   unlockEventForm(event) {
     const { target } = event;
     const parent = target.closest(".js-day");
@@ -73,8 +67,23 @@ const handlers = {
 
     handlers.initSuggest();
   },
+
   stopAscent(event) {
     event.stopPropagation();
+  },
+
+  popupHandler(event) {
+    const { target } = event;
+    const parent = target.closest(".js-header-buttons");
+    parent.appendChild(templatePopup(attributes));
+    target.setAttribute("disabled", "disabled");
+
+    const popup = parent.lastChild;
+    const popupForm = popup.querySelector(".js-form");
+    const buttonPopupClose = popup.querySelector(".js-popup-button");
+
+    buttonPopupClose.addEventListener("click", handlers.unlockPopup);
+    popupForm.addEventListener("submit", handlers.submitPopup);
   },
 
   unlockPopup(event) {
@@ -84,6 +93,62 @@ const handlers = {
 
     button.removeAttribute("disabled");
     parent.removeChild(parent.lastChild);
+  },
+
+  submitPopup(event) {
+    event.preventDefault();
+    const { target } = event;
+    const message = target.querySelector(".js-message");
+    const input = target.querySelector(".js-from-input");
+    const { value } = input;
+    const cont = 3;
+
+    if (
+      !target.checkValidity() ||
+      value.search(`^${"([^,]+),\\s*".repeat(cont)}(.+)`) === -1
+    ) {
+      input.classList.add("invalid");
+      message.classList.add("invalid");
+      message.textContent =
+        "Формат: дд.мм.гггг, Заголовок, Участники, Описание";
+
+      return;
+    }
+
+    let listEvent = value.match(`^${"([^,]+),\\s*".repeat(cont)}(.+)`);
+    listEvent = listEvent.slice(1);
+
+    const numberDay = listEvent[0].split(".")[0];
+
+    input.classList.remove("invalid");
+    message.classList.remove("invalid");
+
+    const dataDay = listEvent[0];
+    const html = `<h4 class = 'day__head js-day-head'>${numberDay}</h4>
+      <div class = 'day__title js-title' data-title = 'eventTitle'>${listEvent[1]}</div>
+      <div class = 'day__subtitle js-subtitle' data-subtitle = 'subtitle'>${listEvent[2]}</div>
+      <div class = 'day__text js-text' data-text = 'text'>${listEvent[3]}</div>`;
+
+    const saveDay = {
+      title: listEvent[1],
+      data: dataDay,
+      html,
+    };
+
+    localStorage.setItem(dataDay, JSON.stringify(saveDay));
+
+    const popup = target.closest(".js-popup");
+    const button = document.querySelector(".js-btn-push");
+
+    button.removeAttribute("disabled");
+    popup.remove();
+    handlers.initSuggest();
+
+    const days = document.querySelectorAll(".js-day");
+    days.forEach((day) => {
+      calendar.removeChild(day);
+    });
+    renderCal();
   },
 
   resetFormDay(event) {

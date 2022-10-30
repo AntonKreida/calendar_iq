@@ -33,6 +33,25 @@
   }
 }
 
+.popup-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-message {
+  width: 200px;
+  height: 25px;
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: $dove-gray;
+
+  &.invalid {
+    color: $mandy;
+  }
+}
+
 .popup-button {
   width: 10px;
   height: 15px;
@@ -44,4 +63,8 @@
 .popup__input {
   width: 276px;
   height: 28px;
+
+  &.invalid {
+    border: 1px solid $mandy;
+  }
 }

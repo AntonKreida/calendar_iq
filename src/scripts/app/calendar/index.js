@@ -11,6 +11,18 @@ import {
 
 const { year, month, monthDay } = getDate();
 
+let numberDay = String(monthDay);
+
+if (numberDay.length === 1) {
+  numberDay = `0${numberDay}`;
+}
+
+let numberMonth = String(month);
+
+if (numberMonth.length === 1) {
+  numberMonth = `0${numberMonth}`;
+}
+
 const renderCal = () => {
   date.setDate(month);
 
@@ -112,7 +124,7 @@ const renderCal = () => {
     }
   });
 
-  const today = `${monthDay}.${month + 1}.${year}`;
+  const today = `${numberDay}.${Number(numberMonth) + 1}.${year}`;
   const monthDays = document.querySelectorAll(".js-day");
   monthDays.forEach((day) => {
     if (day.dataset.day === today) {

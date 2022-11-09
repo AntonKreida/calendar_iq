@@ -25,6 +25,7 @@ class Suggest {
   onInput() {
     if (this.element.value === "") {
       this.removeSuggest();
+      this.clearSuggest();
       window.addEventListener("resize", () => {
         this.removeSuggest();
       });

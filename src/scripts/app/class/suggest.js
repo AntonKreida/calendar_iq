@@ -1,12 +1,11 @@
-/* eslint-disable import/no-cycle */
-import templateEngine from "../template/templateEngine";
-import { date } from "../utils/getDate";
-import renderCal from "../calendar";
+import renderCal from '../calendar';
+import templateEngine from '../template/templateEngine';
+import { date } from '../utils/getDate';
 
 class Suggest {
   constructor(element, option) {
     if (!(element instanceof HTMLElement)) {
-      throw new Error("Это не HTML элемент!");
+      throw new Error('Это не HTML элемент!');
     }
 
     this.element = element;
@@ -18,29 +17,27 @@ class Suggest {
     this.clickSuggest = this.clickSuggest.bind(this);
     this.clickInput = this.clickInput.bind(this);
 
-    this.element.addEventListener("click", this.clickInput);
-    this.element.addEventListener("input", this.onInput);
+    this.element.addEventListener('click', this.clickInput);
+    this.element.addEventListener('input', this.onInput);
   }
 
   onInput() {
-    if (this.element.value === "") {
+    if (this.element.value === '') {
       this.removeSuggest();
       this.clearSuggest();
-      window.addEventListener("resize", () => {
+      window.addEventListener('resize', () => {
         this.removeSuggest();
       });
       return;
     }
 
-    this.filterData = this.ListTitle.filter((item) =>
-      item.toLowerCase().startsWith(this.element.value.toLowerCase())
-    );
+    this.filterData = this.ListTitle.filter((item) => item.toLowerCase().startsWith(this.element.value.toLowerCase()));
 
     if (this.filterData.length) {
       this.removeSuggest();
       this.renderSuggest(this.filterData);
 
-      window.addEventListener("resize", () => {
+      window.addEventListener('resize', () => {
         this.removeSuggest();
         this.renderSuggest(this.filterData);
       });
@@ -63,7 +60,7 @@ class Suggest {
     this.suggest.style.width = `${width}px`;
     document.body.appendChild(this.suggest);
 
-    this.suggest.addEventListener("click", this.clickSuggest);
+    this.suggest.addEventListener('click', this.clickSuggest);
   }
 
   clearSuggest() {
@@ -71,7 +68,7 @@ class Suggest {
       return;
     }
 
-    this.suggest.innerHTML = "";
+    this.suggest.innerHTML = '';
   }
 
   removeSuggest() {
@@ -85,21 +82,20 @@ class Suggest {
 
   clickSuggest(event) {
     const { target } = event;
-    const input = document.querySelector(".js-from-input");
-    const suggest = document.querySelector(".js-suggest");
-    const calendar = document.querySelector(".js-calendar");
-    const days = document.querySelectorAll(".js-day");
+    const input = document.querySelector('.js-from-input');
+    const suggest = document.querySelector('.js-suggest');
+    const calendar = document.querySelector('.js-calendar');
+    const days = document.querySelectorAll('.js-day');
 
     input.value = target.textContent;
     let searchData;
 
     this.suggestData.forEach((item) => {
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key in item) {
-        if (item[key] === target.textContent) {
-          // eslint-disable-next-line no-shadow
-          searchData = item.data.split(".").map((item) => Number(item));
-        }
+      const infoDay = item;
+      const { title, data } = infoDay;
+
+      if (title === target.textContent) {
+        searchData = data.split('.').map((elem) => Number(elem));
       }
     });
 
@@ -116,16 +112,16 @@ class Suggest {
   }
 
   clickInput() {
-    this.element.value = "";
+    this.element.value = '';
   }
 }
 
 Suggest.template = (suggests) => ({
-  tag: "div",
-  cls: ["suggest", "js-suggest"],
+  tag: 'div',
+  cls: ['suggest', 'js-suggest'],
   content: suggests.map((suggest) => ({
-    tag: "div",
-    cls: ["suggest__item", "js-item"],
+    tag: 'div',
+    cls: ['suggest__item', 'js-item'],
     content: suggest,
   })),
 });

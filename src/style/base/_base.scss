@@ -2,8 +2,8 @@
   position: relative;
   margin: 0;
   font-family: $text-font-stack;
-  font-size: 14px;
   font-weight: 400;
+  font-size: 14px;
   line-height: 1.5;
   color: $black;
   background: $white;
@@ -28,8 +28,8 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
   padding-bottom: 10px;
+  width: 100%;
 }
 
 .icon-svg {

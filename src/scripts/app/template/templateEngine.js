@@ -1,13 +1,9 @@
 const templateEngine = (block) => {
   if (block === undefined || block === false || block === null) {
-    return document.createTextNode(``);
+    return document.createTextNode('');
   }
 
-  if (
-    typeof block === `string` ||
-    typeof block === `number` ||
-    block === true
-  ) {
+  if (typeof block === 'string' || typeof block === 'number' || block === true) {
     return document.createTextNode(block);
   }
 

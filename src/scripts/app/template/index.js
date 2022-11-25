@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // generation template day
 export const templateDay = (numberDay) => {
   const template = ` 
@@ -13,13 +12,7 @@ export const templateDay = (numberDay) => {
 };
 
 // generation template form day
-export const templateFormDay = ({
-  type,
-  img,
-  placeholder,
-  buttonName,
-  name,
-}) => {
+export const templateFormDay = ({ type, img, placeholder, buttonName, name }) => {
   const template = `
   <button class="btn-form-closest js-btn-form-closest" type="button">
     <img class="icon-svg--cross" src="${img}" alt="none">
@@ -38,13 +31,14 @@ export const templateFormDay = ({
     </div>
   </form>`;
 
-  const formEvent = document.createElement("div");
-  formEvent.classList.add("day__form", "js-day-form");
+  const formEvent = document.createElement('div');
+  formEvent.classList.add('day__form', 'js-day-form');
   formEvent.innerHTML = template;
 
   return formEvent;
 };
 
+// generation template popup
 export const templatePopup = ({ type, buttonName, placeholder }) => {
   const template = `
   <div class="popup__inner">
@@ -64,8 +58,8 @@ export const templatePopup = ({ type, buttonName, placeholder }) => {
       </form>
   </div>`;
 
-  const popup = document.createElement("div");
-  popup.classList.add("popup", "js-popup");
+  const popup = document.createElement('div');
+  popup.classList.add('popup', 'js-popup');
   popup.innerHTML = template;
 
   return popup;

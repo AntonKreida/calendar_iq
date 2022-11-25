@@ -1,17 +1,17 @@
 /* eslint-disable import/no-cycle */
-import renderCal from "../calendar/index";
-import { getDate, date } from "../utils/getDate";
-import attributes from "../utils/attributes";
-import showFormDay from "../modal/index";
-import { templatePopup } from "../template/index";
-import Suggest from "../class/suggest";
+import renderCal from '../calendar/index';
+import Suggest from '../class/suggest';
+import showFormDay from '../modal/index';
+import { templatePopup } from '../template/index';
+import attributes from '../utils/attributes';
+import { getDate, date } from '../utils/getDate';
 
 const { month, year } = getDate();
-const calendar = document.querySelector(".js-calendar");
+const calendar = document.querySelector('.js-calendar');
 
 const handlers = {
   onFocusHandler() {
-    const HeaderFormInput = document.querySelector(".js-from-input");
+    const HeaderFormInput = document.querySelector('.js-from-input');
     HeaderFormInput.focus();
   },
 
@@ -21,7 +21,7 @@ const handlers = {
   },
 
   prevMonthHandler() {
-    const days = document.querySelectorAll(".js-day");
+    const days = document.querySelectorAll('.js-day');
     days.forEach((day) => {
       calendar.removeChild(day);
     });
@@ -30,7 +30,7 @@ const handlers = {
   },
 
   todayHandler() {
-    const days = document.querySelectorAll(".js-day");
+    const days = document.querySelectorAll('.js-day');
     days.forEach((day) => {
       calendar.removeChild(day);
     });
@@ -40,7 +40,7 @@ const handlers = {
   },
 
   nextMonthHandler() {
-    const days = document.querySelectorAll(".js-day");
+    const days = document.querySelectorAll('.js-day');
     days.forEach((day) => {
       calendar.removeChild(day);
     });
@@ -49,8 +49,8 @@ const handlers = {
   },
 
   showEventForm(event) {
-    const target = event.target.closest(".js-day");
-    if (!target.classList.contains("js-day")) {
+    const target = event.target.closest('.js-day');
+    if (!target.classList.contains('js-day')) {
       return;
     }
     showFormDay(target);
@@ -58,9 +58,9 @@ const handlers = {
 
   unlockEventForm(event) {
     const { target } = event;
-    const parent = target.closest(".js-day");
-    parent.classList.remove("active");
-    parent.classList.remove("block");
+    const parent = target.closest('.js-day');
+    parent.classList.remove('active');
+    parent.classList.remove('block');
     parent.removeChild(parent.lastChild);
     handlers.checkDay(parent);
     handlers.resetLocalElement(parent);
@@ -74,56 +74,52 @@ const handlers = {
 
   popupHandler(event) {
     const { target } = event;
-    const parent = target.closest(".js-header-buttons");
+    const parent = target.closest('.js-header-buttons');
     parent.appendChild(templatePopup(attributes));
-    target.setAttribute("disabled", "disabled");
+    target.setAttribute('disabled', 'disabled');
 
     const popup = parent.lastChild;
-    const popupForm = popup.querySelector(".js-form");
-    const buttonPopupClose = popup.querySelector(".js-popup-button");
+    const popupForm = popup.querySelector('.js-form');
+    const buttonPopupClose = popup.querySelector('.js-popup-button');
 
-    buttonPopupClose.addEventListener("click", handlers.unlockPopup);
-    popupForm.addEventListener("submit", handlers.submitPopup);
+    buttonPopupClose.addEventListener('click', handlers.unlockPopup);
+    popupForm.addEventListener('submit', handlers.submitPopup);
   },
 
   unlockPopup(event) {
     const { target } = event;
-    const parent = target.closest(".js-header-buttons");
-    const button = parent.querySelector(".js-btn-push");
+    const parent = target.closest('.js-header-buttons');
+    const button = parent.querySelector('.js-btn-push');
 
-    button.removeAttribute("disabled");
+    button.removeAttribute('disabled');
     parent.removeChild(parent.lastChild);
   },
 
   submitPopup(event) {
     event.preventDefault();
     const { target } = event;
-    const message = target.querySelector(".js-message");
-    const input = target.querySelector(".js-from-input");
+    const message = target.querySelector('.js-message');
+    const input = target.querySelector('.js-from-input');
     const { value } = input;
     const cont = 3;
 
-    if (
-      !target.checkValidity() ||
-      value.search(`^${"([^,]+),\\s*".repeat(cont)}(.+)`) === -1
-    ) {
-      input.classList.add("invalid");
-      message.classList.add("invalid");
-      message.textContent =
-        "Формат: дд.мм.гггг, Заголовок, Участники, Описание";
+    if (!target.checkValidity() || value.search(`^${'([^,]+),\\s*'.repeat(cont)}(.+)`) === -1) {
+      input.classList.add('invalid');
+      message.classList.add('invalid');
+      message.textContent = 'Формат: дд.мм.гггг, Заголовок, Участники, Описание';
 
       return;
     }
 
-    let listEvent = value.match(`^${"([^,]+),\\s*".repeat(cont)}(.+)`);
+    let listEvent = value.match(`^${'([^,]+),\\s*'.repeat(cont)}(.+)`);
     listEvent = listEvent.slice(1);
 
-    const numberDay = listEvent[0].split(".")[0];
+    const [numberDay] = listEvent[0].split('.');
 
-    input.classList.remove("invalid");
-    message.classList.remove("invalid");
+    input.classList.remove('invalid');
+    message.classList.remove('invalid');
 
-    const dataDay = listEvent[0];
+    const [dataDay] = listEvent;
     const html = `<h4 class = 'day__head js-day-head'>${numberDay}</h4>
       <div class = 'day__title js-title' data-title = 'eventTitle'>${listEvent[1]}</div>
       <div class = 'day__subtitle js-subtitle' data-subtitle = 'subtitle'>${listEvent[2]}</div>
@@ -137,14 +133,14 @@ const handlers = {
 
     localStorage.setItem(dataDay, JSON.stringify(saveDay));
 
-    const popup = target.closest(".js-popup");
-    const button = document.querySelector(".js-btn-push");
+    const popup = target.closest('.js-popup');
+    const button = document.querySelector('.js-btn-push');
 
-    button.removeAttribute("disabled");
+    button.removeAttribute('disabled');
     popup.remove();
     handlers.initSuggest();
 
-    const days = document.querySelectorAll(".js-day");
+    const days = document.querySelectorAll('.js-day');
     days.forEach((day) => {
       calendar.removeChild(day);
     });
@@ -152,55 +148,47 @@ const handlers = {
   },
 
   resetFormDay(event) {
-    const target = event.target.closest(".js-day");
+    const target = event.target.closest('.js-day');
 
-    const inputTitle = document.querySelector(".js-input-title");
-    const inputParty = document.querySelector(".js-input-party");
-    const textarea = document.querySelector(".js-textarea");
+    const inputTitle = document.querySelector('.js-input-title');
+    const inputParty = document.querySelector('.js-input-party');
+    const textarea = document.querySelector('.js-textarea');
 
-    const dayTitle = target.querySelector(".js-title");
-    const daySubtitle = target.querySelector(".js-subtitle");
-    const dayText = target.querySelector(".js-text");
+    const dayTitle = target.querySelector('.js-title');
+    const daySubtitle = target.querySelector('.js-subtitle');
+    const dayText = target.querySelector('.js-text');
 
-    inputTitle.removeAttribute("value");
-    inputParty.removeAttribute("value");
+    inputTitle.removeAttribute('value');
+    inputParty.removeAttribute('value');
 
-    inputTitle.value = "";
-    inputParty.value = "";
-    textarea.value = "";
-    textarea.textContent = "";
+    inputTitle.value = '';
+    inputParty.value = '';
+    textarea.value = '';
+    textarea.textContent = '';
 
-    dayTitle.textContent = "";
-    daySubtitle.textContent = "";
-    dayText.textContent = "";
+    dayTitle.textContent = '';
+    daySubtitle.textContent = '';
+    dayText.textContent = '';
   },
 
   checkDay(target) {
-    const dayTitle = target.querySelector(".js-title");
-    const daySubtitle = target.querySelector(".js-subtitle");
-    const dayText = target.querySelector(".js-text");
+    const dayTitle = target.querySelector('.js-title');
+    const daySubtitle = target.querySelector('.js-subtitle');
+    const dayText = target.querySelector('.js-text');
 
-    if (
-      dayTitle.textContent.length > 0 ||
-      daySubtitle.textContent.length > 0 ||
-      dayText.textContent.length > 0
-    ) {
-      target.classList.add("valid");
+    if (dayTitle.textContent.length > 0 || daySubtitle.textContent.length > 0 || dayText.textContent.length > 0) {
+      target.classList.add('valid');
     } else {
-      target.classList.remove("valid");
+      target.classList.remove('valid');
     }
   },
 
   saveLocalElement(target) {
-    const dayTitle = target.querySelector(".js-title");
-    const daySubtitle = target.querySelector(".js-subtitle");
-    const dayText = target.querySelector(".js-text");
+    const dayTitle = target.querySelector('.js-title');
+    const daySubtitle = target.querySelector('.js-subtitle');
+    const dayText = target.querySelector('.js-text');
 
-    if (
-      dayTitle.textContent.length > 0 ||
-      daySubtitle.textContent.length > 0 ||
-      dayText.textContent.length > 0
-    ) {
+    if (dayTitle.textContent.length > 0 || daySubtitle.textContent.length > 0 || dayText.textContent.length > 0) {
       const dataDay = target.dataset.day;
       const html = target.innerHTML;
       const saveDay = {
@@ -214,22 +202,18 @@ const handlers = {
   },
 
   resetLocalElement(target) {
-    const dayTitle = target.querySelector(".js-title");
-    const daySubtitle = target.querySelector(".js-subtitle");
-    const dayText = target.querySelector(".js-text");
+    const dayTitle = target.querySelector('.js-title');
+    const daySubtitle = target.querySelector('.js-subtitle');
+    const dayText = target.querySelector('.js-text');
 
-    if (
-      dayTitle.textContent.length === 0 ||
-      daySubtitle.textContent.length === 0 ||
-      dayText.textContent.length === 0
-    ) {
+    if (dayTitle.textContent.length === 0 || daySubtitle.textContent.length === 0 || dayText.textContent.length === 0) {
       const dataDay = target.dataset.day;
       localStorage.removeItem(dataDay);
     }
   },
 
   renderSaveDay() {
-    const days = document.querySelectorAll(".js-day");
+    const days = document.querySelectorAll('.js-day');
 
     days.forEach((elem) => {
       if (localStorage.getItem(elem.dataset.day) !== null) {
@@ -238,24 +222,20 @@ const handlers = {
         elem.innerHTML = itemDay.html;
       }
 
-      const dayTitle = elem.querySelector(".js-title");
-      const daySubtitle = elem.querySelector(".js-subtitle");
-      const dayText = elem.querySelector(".js-text");
+      const dayTitle = elem.querySelector('.js-title');
+      const daySubtitle = elem.querySelector('.js-subtitle');
+      const dayText = elem.querySelector('.js-text');
 
-      if (
-        dayTitle.textContent.length > 0 ||
-        daySubtitle.textContent.length > 0 ||
-        dayText.textContent.length > 0
-      ) {
-        elem.classList.add("valid");
+      if (dayTitle.textContent.length > 0 || daySubtitle.textContent.length > 0 || dayText.textContent.length > 0) {
+        elem.classList.add('valid');
       } else {
-        elem.classList.remove("valid");
+        elem.classList.remove('valid');
       }
     });
   },
 
   initSuggest() {
-    const inputNav = document.querySelector(".js-from-input");
+    const inputNav = document.querySelector('.js-from-input');
     const listDay = Object.values(localStorage);
     const listDayTitle = [];
     listDay.forEach((item) => {

@@ -6,27 +6,27 @@
 $text-font-stack: "Roboto", sans-serif;
 
 /// Copy color
-$black: rgb(0, 0, 0);
-$mine-shaft: rgb(41, 41, 41);
-$white: rgb(255, 255, 255);
-$wild-sand: rgb(244, 244, 244);
-$alto: rgb(207, 207, 207);
-$dove-gray: rgb(107, 107, 107);
-$science-blue: rgb(2, 113, 199);
-$dodger-blue: rgb(39, 161, 255);
-$french-pass: rgb(194, 228, 254);
-$mandy: rgb(233, 78, 78);
-$pastel-green: rgb(152, 234, 133);
-$iron: rgb(234, 234, 235);
-$bombay: rgb(173, 173, 179);
-$cosmos: rgb(255, 219, 219);
-$alto: rgb(217, 217, 217);
+$black: rgb(0 0 0);
+$mine-shaft: rgb(41 41 41);
+$white: rgb(255 255 255);
+$wild-sand: rgb(244 244 244);
+$alto: rgb(207 207 207);
+$dove-gray: rgb(107 107 107);
+$science-blue: rgb(2 113 199);
+$dodger-blue: rgb(39 161 255);
+$french-pass: rgb(194 228 254);
+$mandy: rgb(233 78 78);
+$pastel-green: rgb(152 234 133);
+$iron: rgb(234 234 235);
+$bombay: rgb(173 173 179);
+$cosmos: rgb(255 219 219);
+$alto: rgb(217 217 217);
 
 /// Copy box-shadow
-$box-shadow-button: 0 1px 1px rgba(0, 0, 0, 0.25);
-$box-shadow-btn-control: inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
-$box-shadow-form: inset 0 0 1px 2px rgba(0, 0, 0, 0.25);
+$box-shadow-button: 0 1px 1px rgb(0 0 0 / 25%);
+$box-shadow-btn-control: inset 0 0 1px 1px rgb(0 0 0 / 25%);
+$box-shadow-form: inset 0 0 1px 2px rgb(0 0 0 / 25%);
 $box-shadow-active: 0 0 10px 2px $dodger-blue;
 
 /// Drop-shadow
-$drop-shadow: drop-shadow(0 0 7px rgba(0, 0, 0, 0.25));
+$drop-shadow: drop-shadow(0 0 7px rgb(0 0 0 / 25%));

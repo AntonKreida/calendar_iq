@@ -1,40 +1,56 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
+const filename = (ext) => isDev ? `bundle.${ext}` : `bundle.[contenthash].${ext}`;
 
 module.exports = {
   mode: "development",
-  entry: "./src/scripts/index.js",
+  entry: path.resolve(__dirname, 'src/scripts', 'index.js'),
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "./js/bundle.js",
-    assetModuleFilename: "assets/[name][ext][query]",
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    filename: `./script/${filename('js')}`,
+    assetModuleFilename: 'images/[name][ext][query]',
   },
-
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    historyApiFallback: true,
+    open: true,
+    port: 3000,
+    compress: true,
+    hot: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, `./src/index.html`),
       path: path.resolve(__dirname, "dist"),
       filename: `./index.html`,
-      publicPath: "",
+      minify: {
+        collapseWhitespace: isProd,
+      }
     }),
-
-    new CleanWebpackPlugin(),
-
     new MiniCssExtractPlugin({
       filename: `./style/main.css`,
     }),
   ],
+  devtool: isProd ? false : 'source-map',
+  optimization: {
+    minimizer: ['...', new CssMinimizerPlugin()],
+  },
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.html$/i,
+        loader: 'html-loader',
       },
       {
-        test: /\.scss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        test: /\.(c|sa|sc)ss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

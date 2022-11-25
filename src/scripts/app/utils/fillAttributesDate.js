@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
-import { date } from "./getDate";
+import { date } from './getDate';
 
 export const getPrevYear = (mountName) => {
-  if (mountName.textContent === "Январь") {
+  if (mountName.textContent === 'Январь') {
     const prevYear = date.getFullYear() - 1;
     return prevYear;
   }
@@ -10,7 +10,7 @@ export const getPrevYear = (mountName) => {
 };
 
 export const getNextYear = (mountName) => {
-  if (mountName.textContent === "Декабрь") {
+  if (mountName.textContent === 'Декабрь') {
     const prevYear = date.getFullYear() + 1;
     return prevYear;
   }
@@ -21,7 +21,7 @@ export const getNumberMonth = (monthNumber) => {
   if (monthNumber === 0) {
     monthNumber = 12;
     return monthNumber;
-  } 
+  }
 
   if (monthNumber < 10) {
     const textNumberMount = `0${monthNumber}`;
@@ -33,7 +33,7 @@ export const getNumberMonth = (monthNumber) => {
     const textNumberMount = `0${monthNumber}`;
     return textNumberMount;
   }
-    
+
   return monthNumber;
 };
 

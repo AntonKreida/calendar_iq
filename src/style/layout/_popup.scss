@@ -2,11 +2,11 @@
   position: absolute;
   left: 0;
   top: 150%;
-  display: block;
   z-index: 2000;
+  display: block;
+  padding: 12px;
   width: 300px;
   height: 110px;
-  padding: 12px;
   background: $white;
   filter: $drop-shadow;
 }
@@ -35,14 +35,14 @@
 
 .popup-control {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .popup-message {
+  margin-top: 10px;
   width: 200px;
   height: 25px;
-  margin-top: 10px;
   font-size: 12px;
   text-align: center;
   color: $dove-gray;
@@ -53,10 +53,10 @@
 }
 
 .popup-button {
-  width: 10px;
-  height: 15px;
   margin-left: auto;
   border: none;
+  width: 10px;
+  height: 15px;
   background: none;
 }
 

@@ -1,27 +1,27 @@
 const attributes = {
   type: {
-    text: "text",
-    button: "button",
-    reset: "reset",
-    submit: "submit",
+    text: 'text',
+    button: 'button',
+    reset: 'reset',
+    submit: 'submit',
   },
-  img: "./assets/icon_cross.svg",
+  img: './images/icon_cross.svg',
   placeholder: {
-    event: "Событие...",
-    data:  "День, месяц, год...",
-    party:  "Участники...",
-    text: "Описание...",
+    event: 'Событие...',
+    data: 'День, месяц, год...',
+    party: 'Участники...',
+    text: 'Описание...',
   },
   name: {
-    title: "eventTitle",
-    data: "eventDate",
-    party: "eventParty",
-    text: "eventText",
+    title: 'eventTitle',
+    data: 'eventDate',
+    party: 'eventParty',
+    text: 'eventText',
   },
   buttonName: {
-    ready: "Готово",
-    delete: "Удалить",
-    create: "Создать",
+    ready: 'Готово',
+    delete: 'Удалить',
+    create: 'Создать',
   },
 };
 

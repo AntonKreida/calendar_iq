@@ -218,7 +218,6 @@ const handlers = {
     days.forEach((elem) => {
       if (localStorage.getItem(elem.dataset.day) !== null) {
         const itemDay = JSON.parse(localStorage.getItem(elem.dataset.day));
-        // eslint-disable-next-line no-param-reassign
         elem.innerHTML = itemDay.html;
       }
 

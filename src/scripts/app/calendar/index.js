@@ -14,12 +14,18 @@ if (numberDay.length === 1) {
 
 let numberMonth = String(month);
 
-if (numberMonth.length === 1) {
+if (numberMonth.length === 1 && numberDay !== '0') {
   numberMonth = `0${numberMonth}`;
+} else {
+  numberDay = '01';
 }
 
 const renderCal = () => {
-  date.setDate(month);
+  if (month === 0) {
+    date.setDate(1);
+  } else {
+    date.setDate(month);
+  }
 
   const lastDayMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const firstDayIndex = new Date(date.getFullYear(), date.getMonth(), 0).getDay();
@@ -65,11 +71,12 @@ const renderCal = () => {
   }
 
   handlers.renderSaveDay();
-  const titleDay = document.querySelectorAll('.js-day-head');
 
-  titleDay.forEach((person, i) => {
+  const titlesDay = document.querySelectorAll('.js-day-head');
+
+  titlesDay.forEach((title, i) => {
     if (i < 7) {
-      person.prepend(document.createTextNode(`${nameDayList[i]}, `));
+      title.prepend(document.createTextNode(`${nameDayList[i]}, `));
     }
   });
 
